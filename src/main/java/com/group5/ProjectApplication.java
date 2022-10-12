@@ -18,7 +18,7 @@ public class ProjectApplication {
 	private static void testCart()
 	{
 		Shoppincart cart = new Shoppincart();
-		Product testProduct = new Product(0,"Test",20,"book","/images/sushi.png");
+		Product testProduct = new Product(0,"Test",20,"testbeskrivning", "book","/images/sushi.png");
 		cart.addToCart(testProduct,2);
 		cart.addToCart(testProduct,2);
 		cart.removeFromCart(testProduct, 1);

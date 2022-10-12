@@ -22,12 +22,13 @@ public class ProductRepository
         List<Product> products = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT id, name, price, category, image FROM product")) {
+             ResultSet rs = stmt.executeQuery("SELECT id, name, price, description, category, image FROM product")) {
 
             while (rs.next()){
                 products.add(new Product(rs.getInt("id"),
                                         rs.getString("name"),
                                         rs.getInt("price"),
+                                        rs.getString("description"),
                                         rs.getString("category"),
                                         rs.getString("image")));
             }
@@ -43,12 +44,13 @@ public class ProductRepository
         //test
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT id, name, price, category, image FROM product WHERE id = " + id)) {
+             ResultSet rs = stmt.executeQuery("SELECT id, name, price, description, category, image FROM product WHERE id = " + id)) {
 
             if (rs.next()){
                 foundProduct = (new Product(rs.getInt("id"),
                         rs.getString("name"),
                         rs.getInt("price"),
+                        rs.getString("description"),
                         rs.getString("category"),
                         rs.getString("image")));
             }
