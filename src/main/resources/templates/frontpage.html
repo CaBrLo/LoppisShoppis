@@ -25,19 +25,32 @@
       padding: 25px;
     }
         .btn-primary:hover {
-      background: #e50404;
+      background:  #2098ff;
       color:  #fff;
    }
 
    .panel-primary:hover {
-    border-color: #e50404;
+    border-color:  #2098ff;
 }
 
 .panel-primary>.panel-heading:hover
     {
-    background-color: #e50404;
-               color:  black;
+    background-color:  #2098ff;
+               color:  white;
     }
+
+  .img {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+img:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
   </style>
 </head>
 <body>
@@ -131,13 +144,13 @@
 </div><br>
 
 <div class="container">
-    <div class="row">
+    <div class="row" onclick="location.href='product' + ${product.id};"  style="cursor: pointer;">
         <div class="productlisting" th:each="product : ${products}">
             <div class="col-sm-4">
-                <div class="panel panel-primary stretched-link">
-                    <div class="panel-heading" th:text="${product.name}"></div>
+                <div class="panel panel-primary stretched-link" >
+                    <div class="panel-heading" th:text="${product.name}" href="'/product/' + ${product.id}"></div>
                     <div class="panel-body"><img th:src="${product.image}" class="img-responsive"
-                                                 style="width:100%" alt="Image"></div>
+                                                  alt="Image" ></div>
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
                     <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
 
