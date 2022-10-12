@@ -78,8 +78,6 @@ img:hover {
         </div>
     </div>
 </div>
-</body>
-<body style="background-color:azure;">
 
 <div class="jumbotron" style="background-color:seashell">
     <div class="container text-center" style="color:black">
@@ -144,7 +142,7 @@ img:hover {
 </div><br>
 
 <div class="container">
-    <div class="row" onclick="location.href='product' + ${product.id};"  style="cursor: pointer;">
+    <div class="row">
         <div class="productlisting" th:each="product : ${products}">
             <div class="col-sm-4">
                 <div class="panel panel-primary stretched-link" >
@@ -154,7 +152,7 @@ img:hover {
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
                     <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
 
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="saveToCart(${product.id},${product.name},${product.price})">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="addProduct()">
                         Köp
                     </button>
                 </div>
@@ -170,10 +168,7 @@ img:hover {
         <button type="button" class="btn btn-danger">Sign Up</button>
     </form>
 </footer>
+<script src="shoppingcart.js"></script>
 
-<div class="cartcheckout" onload="printOutCart()">test
-</div>
-
-    <script src="shoppingcart.js"></script>
 </body>
 </html>

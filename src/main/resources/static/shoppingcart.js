@@ -2,36 +2,47 @@ const cartitem = document.querySelector(".cartitem")
 const checkout = document.querySelector(".cartcheckout")
 const sum = document.getElementById("cartsum")
 
-const cartData = [
-    {productId: '00', productName: "test", productPrice: 199},
-    {productId: '00', productName: "test2", productPrice: 199}
+let cartData = [
+    {productId: '00', productName: "first", productPrice: 199},
+    {productId: '01', productName: "second", productPrice: 199},    
+    {productId: '02', productName: "third", productPrice: 199},
+    {productId: '03', productName: "fourth", productPrice: 199}
 ]
 
 updateSum();
-function saveToCart(id, name, price)
+function saveToCart(id, name)
 {
-    let b = {productId: id, productName: name, productPrice: price}
+    let b = {productId: id, productName: name}
     cartData.push(b)
 
-    updateSum();
+    updateSum()
 }
 
 function printOutCart()
 {
-    let html = ""    
+    let htmltxt = ""
     for(let c of cartData)
     {
         const prodId = c.productId
         const prodName = c.productName
-        const prodPrice = c.productPrice
 
-        html += `<div value="${prodId}">Produkt: ${prodName}, Pris: ${prodPrice}</div>`
+        htmltxt += `<div>Produkt: ${c.productName}</div>`
     }
-    checkout.innerHTML = html
+    checkout.innerHTML = htmltxt
+
+    updateSum()
 }
 
 function updateSum()
 {
-    let numberOfProcuts = cartData.length
-    sum.innerText = `${numberOfProcuts}`
+    let cartsum = cartData.length
+    sum.innerText = cartData.length
+}
+
+function addProduct()
+{
+    let b = {productId: '00', productName: 'asd'}
+    cartData.push(b)
+
+    updateSum()
 }
