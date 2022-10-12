@@ -27,5 +27,4 @@ public class ProjectApplication {
 			System.out.printf("Produkt: %s, antal: %d", cartProduct.getKey().getName(), cartProduct.getValue());
 		}
 	}
-
 }

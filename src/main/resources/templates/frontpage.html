@@ -65,6 +65,7 @@
         </div>
     </div>
 </div>
+</body>
 <body style="background-color:azure;">
 
 <div class="jumbotron" style="background-color:seashell">
@@ -95,6 +96,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                <li><span id="cartsum">0</span></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
             </ul>
@@ -139,15 +141,9 @@
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
                     <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
 
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="saveToCart(${product.id},${product.name},${product.price})">
                         Köp
                     </button>
-
-                    <form action="#" th:action="@{/greeting}" th:object="${product}" method="post">
-                        <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Köp
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -162,5 +158,9 @@
     </form>
 </footer>
 
+<div class="cartcheckout" onload="printOutCart()">test
+</div>
+
+    <script src="shoppingcart.js"></script>
 </body>
 </html>
