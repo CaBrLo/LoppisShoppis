@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LoppisShoppis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+
+    tr.spaceOver>td 
+    {
+        padding-top: 1em;
+    }
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+        .btn-primary:hover {
+      background:  #2098ff;
+      color:  #fff;
+   }
+
+   .panel-primary:hover {
+    border-color:  #2098ff;
+}
+
+.panel-primary>.panel-heading {
+    background-color: #3190B5;
+}
+
+.panel-primary>.panel-heading:hover
+    {
+    background-color:  #2098ff;
+               color:  white;
+    }
+
+  .img {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  }
+
+.panel img:hover {
+  transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
+
+
+/* Tillagt för att centrera bilder på varor och ge dem samma höjd */
+#productimg {
+    padding: 10px;
+    margin: 0 auto;
+    height: 250px;
+}
+/* KOPIA AV PRODUCT.HTML */
+
+/* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #D6E9F0;
+      padding: 25px;
+    }
+
+    #footerbtn {
+      background-color: #FFDD5C;
+      border-color: #FFDD5C;
+      color: #0E2A36
+    }
+
+#myCarousel {
+    padding: 10px;
+}
+  </style>
+</head>
+<body style="background-color: #D6E9F0;" onload="printCart()">
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                Varan tillagd i varukorgen!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron" style="background-color:#D6E9F0">
+    <div class="container text-center" style="color:black">
+        <img onclick="location.href='/';" style="cursor: pointer;" src="/images/loppisshoppis3.png" height="300">
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid" style="background-color:#0E2A36;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Nyinkommet</a></li>
+                        <li><a href="#">Sommarkläder</a></li>
+                        <li><a href="#">Rabatterade varor</a></li>
+                    </ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hem & inredning<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Möbler</a></li>
+                        <li><a href="#">Akvarium</a></li>
+                        <li><a href="#">Tavlor</a></li>
+                    </ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Astrid Lindgrens Kollektion</a></li>
+                        <li><a href="#">Antika Grekland</a></li>
+                        <li><a href="#">Sci-Fi</a></li>
+                    </ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Frimärke</a></li>
+                        <li><a href="#">Friluft</a></li>
+                        <li><a href="#">Test</a></li>
+                    </ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vintage <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">1920-1950</a></li>
+                        <li><a href="#">1950-1970</a></li>
+                        <li><a href="#">1970-2000</a></li>
+                    </ul>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Vision</a></li>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="#">Vet ej</a></li>
+                    </ul>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><span id="cartsum">0</span></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Slut på header -->
+
+<!-- Kundkorgen -->
+<div class="container">
+    <table style="width:50%" class="listofproducts">
+    </table>
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="emptyCart()">Töm vagnen</button>
+  </div>
+
+<!-- Footer -->
+<footer class="container-fluid text-center">
+    <p>Bli en återvinnare!</p>
+    <form class="form-inline">Anmäl dig till vårt nyhetsbrev:
+        <input type="email" class="form-control" size="50" placeholder="Mejladress">
+        <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
+    </form>
+</footer>
+<script src="shoppingcart.js"></script>
+
+</body>
+</html>
