@@ -39,10 +39,26 @@ function updateSum()
     sum.innerText = cartData.length
 }
 
-function addProduct()
+function addProduct(pid,pname,pprice)
 {
-    let b = {productId: '00', productName: 'asd'}
+    let b = {productId: pid, productName: pname, productPrice: pprice}
     cartData.push(b)
 
     updateSum()
+    printCart()
+}
+
+function printCart()
+{
+    let htmltxt = ""
+    pricesum = 0
+
+    for(let c of cartData)
+    {
+        pricesum += c.productPrice
+
+        htmltxt += `<div>Produkt: ${c.productName} Pris: ${c.productPrice}</div>`
+    }
+    htmltxt += `Totalsumma: ${pricesum}</div>`
+    document.getElementById("test").innerHTML = htmltxt
 }
