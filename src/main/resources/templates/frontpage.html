@@ -19,11 +19,12 @@
       margin-bottom: 0;
     }
 
-    /* Add a gray background color and some padding to the footer */
+/*    /* Add a gray background color and some padding to the footer */
     footer {
       background-color: #f2f2f2;
       padding: 25px;
     }
+*/
         .btn-primary:hover {
       background:  #2098ff;
       color:  #fff;
@@ -31,6 +32,10 @@
 
    .panel-primary:hover {
     border-color:  #2098ff;
+}
+
+.panel-primary>.panel-heading {
+    background-color: #3190B5;
 }
 
 .panel-primary>.panel-heading:hover
@@ -46,10 +51,36 @@
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  }
+
+.panel img:hover {
+  transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
 }
 
-img:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+/* Tillagt för att centrera bilder på varor och ge dem samma höjd */
+#productimg {
+    padding: 10px;
+    margin: 0 auto;
+    height: 250px;
+}
+/* KOPIA AV PRODUCT.HTML */
+
+/* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #D6E9F0;
+      padding: 25px;
+    }
+
+    #footerbtn {
+      background-color: #FFDD5C;
+      border-color: #FFDD5C;
+      color: #0E2A36
+    }
+
+#myCarousel {
+    padding: 10px;
 }
   </style>
 </head>
@@ -79,16 +110,16 @@ img:hover {
     </div>
 </div>
 </body>
-<body style="background-color:azure;">
+<body style="background-color: #D6E9F0;">
 
 <div class="jumbotron" style="background-color:#D6E9F0">
     <div class="container text-center" style="color:black">
-        <img src="/images/loppisshoppis3.png" height="300">
+        <img src="/images/loppisshoppis3.png" id="logo" height="300">
     </div>
 </div>
 
 <nav class="navbar navbar-inverse">
-    <div class="container-fluid" style="background-color:steelblue;">
+    <div class="container-fluid" style="background-color:#0E2A36;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -116,6 +147,65 @@ img:hover {
     </div>
 </nav>
 
+<!--CAROUSEL TEST -->
+<div class="container">
+    <h2>Tips inför Halloween!</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+            <div class="item active">
+                <img src="/images/skelett.png" alt="Halloween-dekoration: skelett" style="height: 400px; margin: 0 auto; cursor: pointer;"
+                     onclick="location.href='/product/7'">
+                <div class="carousel-caption">
+<!--                    <h3>Los Angeles</h3>
+                    <p>LA is always so much fun!</p>
+                    -->
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="/images/pumpalykta.png" alt="Halloween-dekoration: värmeljuslykta" style="height: 400px; margin: 0 auto; cursor: pointer;"
+                     onclick="location.href='/product/6'">
+                <div class="carousel-caption">
+                    <!--                    <h3>Chicago</h3>
+                                        <p>Thank you, Chicago!</p>
+                    -->
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="/images/halloweenhaxa.png" alt="Halloween-dekoration: häxa" style="height: 400px; margin: 0 auto; cursor: pointer;"
+                     onclick="location.href='/product/5'">
+                <div class="carousel-caption">
+                    <!--                  <h3>New York</h3>
+                                      <p>We love the Big Apple!</p>
+                                      -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<br>
+<!--
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
@@ -141,15 +231,16 @@ img:hover {
         </div>
     </div>
 </div><br>
-
+-->
 <div class="container">
     <div class="row" onclick="location.href='product' + ${product.id};"  style="cursor: pointer;">
         <div class="productlisting" th:each="product : ${products}">
             <div class="col-sm-4">
-                <div class="panel panel-primary stretched-link" >
+                <div class="panel panel-primary stretched-link" id="productpanel">
                     <div class="panel-heading" th:text="${product.name}" href="'/product/' + ${product.id}"></div>
-                    <div class="panel-body"><img th:src="${product.image}" class="img-responsive"
-                                                  alt="Image" ></div>
+                        <div class="panel-body">
+                            <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
+                        </div>
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
                     <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
 
@@ -163,10 +254,10 @@ img:hover {
 </div><br><br>
 
 <footer class="container-fluid text-center">
-    <p>Online Store Copyright</p>
-    <form class="form-inline">Get deals:
-        <input type="email" class="form-control" size="50" placeholder="Email Address">
-        <button type="button" class="btn btn-danger">Sign Up</button>
+    <p>Bli en återvinnare!</p>
+    <form class="form-inline">Anmäl dig till vårt nyhetsbrev:
+        <input type="email" class="form-control" size="50" placeholder="Mejladress">
+        <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
     </form>
 </footer>
 
