@@ -1,8 +1,6 @@
-const cartitem = document.querySelector(".cartitem")
-const checkout = document.querySelector(".cartcheckout")
 const sum = document.getElementById("cartsum")
 
-let cartData = null
+let cartData = [{productId: " ", productName: " ", productPrice: 0}]
 /*  Testdata
 let cartData = [
     {productId: '00', productName: "first", productPrice: 199},
@@ -18,7 +16,7 @@ function initCart()
 {
     if(sessionStorage.getItem("cartD") != null)
     {
-        cartData = JSON.parse(localStorage.getItem("cartD"))
+        cartData = JSON.parse(sessionStorage.getItem("cartD"))
     } 
 }
 
@@ -33,21 +31,19 @@ function addProduct(pid,pname,pprice)
     let newData = {productId: pid, productName: pname, productPrice: pprice}
     if(sessionStorage.getItem("cartD") === null)
     {
+        cartData.push(newData)
         sessionStorage.setItem("cartD",JSON.stringify(newData))
     } else
     {
-        cartData = JSON.parse(localStorage.getItem("cartD"))
+        cartData = JSON.parse(sessionStorage.getItem("cartD"))
         cartData.push(newData)
-        localStorage.setItem("cartD",JSON.stringify(cartData))
+        sessionStorage.setItem("cartD",JSON.stringify(cartData))
     }
-    
-    /*localStorage.setItem("cartD",JSON.stringify(cartData))    
-    cartData = JSON.parse(localStorage.getItem("cartD"))
-    let b = {productId: pid, productName: pname, productPrice: pprice}
-    cartData.push(b)
-    localStorage.setItem("cartD",JSON.stringify(cartData))*/
 
-    updateSum()
+    if(sum != null)
+    {
+        updateSum()
+    }
     printCart()
 }
 
