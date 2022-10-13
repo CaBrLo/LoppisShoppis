@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
 <head>
-  <title th:text="'LoppisShoppis: ' + ${product.name}"></title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #D6E9F0;
+      padding: 25px;
+    }
+
+    #footerbtn {
+      background-color: #FFDD5C;
+      border-color: #FFDD5C;
+      color: #0E2A36
+    }
+
+    #buybtn{
+      background-color: #3190B5;
+
+    }
+
+    .panel img:hover {
+  transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
 
   </style>
 </head>
@@ -25,7 +55,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
       <div class="modal-body">
         Varan tillagd i varukorgen!
       </div>
@@ -37,23 +66,22 @@
   </div>
 </div>
 
-<!-- Header with logo -->
-<div class="jumbotron">
-  <div class="container text-center">
-    <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
+<body style="background-color: #D6E9F0;">
+
+<div class="jumbotron" style="background-color:#D6E9F0">
+  <div class="container text-center" style="color: #0E2A36">
+    <img onclick="location.href='/';" style="cursor: pointer;" src="/images/loppisshoppis3.png" height="300">
   </div>
 </div>
-
-<!-- Navbar -->
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid" style="background-color:#0E2A36;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -71,9 +99,9 @@
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Astrid Lindgrens Kollektion</a></li>
-            <li><a href="#">Antika Grekland</a></li>
-            <li><a href="#">Sci-Fi</a></li>
+            <li><a href="/AstridLindgrenCollection">Astrid Lindgrens Kollektion</a></li>
+            <li><a href="/AnticGreece">Antika Grekland</a></li>
+            <li><a href="/Sci-Fi">Sci-Fi</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -87,50 +115,46 @@
             <li><a href="#">1950-1970</a></li>
             <li><a href="#">1970-2000</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" onclick="location.href='/AboutUs';" style="cursor: pointer;">Om oss <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Vision</a></li>
+            <li><a href="/AboutUs">Vision</a></li>
             <li><a href="#">Historia</a></li>
             <li><a href="#">Vet ej</a></li>
           </ul>
       </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><span id="cartsum">0</span></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-        <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
-      </ul>
-    </div>
-  </div>
+  <ul class="nav navbar-nav navbar-right">
+    <li><span id="cartsum">0</span></li>
+    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
+    <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
+  </ul>
+</div>
+</div>
 </nav>
-
-<!-- Product image and information -->
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <img th:src="${product.image}" class="img-responsive" id="large-productimg"  alt="Image">
-    </div>
-    <div class="col-md-6">
+    <div class="productlisting" th:each="product : ${products}">
+      <div class="col-sm-4" th:if="${product.category =='Barnbok'}">
+        <div class="panel panel-primary stretched-link" id="productpanel">
+          <div class="panel-heading" th:text="${product.category}" href="'/product/' + ${product.id}"></div>
+          <div class="panel-body">
+            <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
+          </div>
+          <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
+          <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
 
-      <h2><th th:text="${product.name}"></th></h2>
-      <h3><th th:text="${product.price} + ' kr'"></th></h3>
-      <h4><th th:text="${product.description}"></th></h4>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Köp
-      </button>
-
-      <div class="purchaseinfo">
-        <br>
-        &#x2611; Skickas inom 2-3 dagar &ensp;
-        &#x2611; Fri frakt över 299 kr &ensp;
-        &#x2611; Miljövänligt &ensp;
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
+            Köp
+          </button>
+        </div>
       </div>
     </div>
   </div>
+</div><br><br>
+
+<div id="test">
 </div>
 
-<!-- Footer -->
 <footer class="container-fluid text-center">
   <p>Bli en återvinnare!</p>
   <form class="form-inline">Anmäl dig till vårt nyhetsbrev:

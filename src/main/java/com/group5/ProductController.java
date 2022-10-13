@@ -48,4 +48,39 @@ public class ProductController
     public String checkout(HttpSession session) {
         return "checkout";
     }
+
+
+    @GetMapping("/Sci-Fi")
+    public String categorySciFi(Model model)
+    {
+        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+
+        return "Sci-Fi";
+    }
+
+    @GetMapping("/AstridLindgrenCollection")
+    public String categoryAstridLindgrenCollection(Model model)
+    {
+        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+
+        return "AstridLindgrenCollection";
+    }
+    @GetMapping("/AnticGreece")
+    public String categoryAnticGreece(Model model)
+    {
+        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+
+        return "AnticGreece";
+    }
+
+    @GetMapping("/AboutUs")
+    public String categoryAboutUs(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "AboutUs";
+    }
 }
