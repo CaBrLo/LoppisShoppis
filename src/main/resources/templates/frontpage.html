@@ -28,12 +28,12 @@
 
             <div class="modal-body">
                 <ul>
-                    <li> Detta behöver uppdateras med en lista av varor </li>
+                    <li onchange="printcart()"> Detta behöver uppdateras med en lista av varor </li>
                 </ul>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-                <button type="button" class="btn btn-primary">Gå till varukorgen</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/cart'">Gå till varukorgen</button>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
                 <span class="icon-bar"></span>
             </button>
 <!--            <a class="navbar-brand" href="#"></a>   -->
-            <img src="/images/logga-liten.svg" id="navbarlogo">
+            <img src="/images/logga-liten.svg" id="navbarlogo" onclick="location.href='/'">
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -164,10 +164,12 @@
             <div class="col-sm-4">
                 <div class="panel panel-primary stretched-link" id="productpanel">
 
-                    <div class="panel-heading" th:text="${product.name}" href="'/product/' + ${product.id}"></div>
+                    <div class="panel-heading" th:text="${product.name}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
 
                     <div class="panel-body">
-                        <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
+                        <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
+                        th:onclick="'location.href=\'/product/' + ${product.id} + '\''"> <!--th:onclick="|window.location.href='/product/' + '${product.id}'|"-->
+
                     </div>
 
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
