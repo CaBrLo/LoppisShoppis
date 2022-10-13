@@ -50,13 +50,9 @@ footer {
     border-color: #FFDD5C;
     color: #0E2A36
 }
-/*
-Blue: #3190B5
-    Dark blue: #0E2A36      (e.g. navbar)
-    Light blue: #D6E9F0     (e.g. background)
-    Green: #257D5E          (e.g. logo)
-    Yellow: #FFDD5C         (e.g. for alerts)
-*/
+
+
+
 /***** Styling for frontpage *****/
 
 /* Product counter (cartsymbol) */
@@ -149,6 +145,7 @@ Blue: #3190B5
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 
 
 
