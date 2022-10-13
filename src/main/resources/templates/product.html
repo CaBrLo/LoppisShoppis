@@ -21,9 +21,21 @@
 
     /* Add a gray background color and some padding to the footer */
     footer {
-      background-color: #f2f2f2;
+      background-color: #D6E9F0;
       padding: 25px;
     }
+
+    #footerbtn {
+      background-color: #FFDD5C;
+      border-color: #FFDD5C;
+      color: #0E2A36
+    }
+
+    #buybtn{
+      background-color: #3190B5;
+
+    }
+
   </style>
 </head>
 <body>
@@ -49,12 +61,11 @@
   </div>
 </div>
 
-<body style="background-color:azure;">
+<body style="background-color: #D6E9F0;">
 
-<div class="jumbotron" style="background-color:seashell">
-  <div class="container text-center" style="color:black">
-    <h1><b>Loppisshoppis </b></h1>
-    <p><i>Personligt - miljövänligt - prisvärt</i></p>
+<div class="jumbotron" style="background-color:#D6E9F0">
+  <div class="container text-center" style="color: #0E2A36">
+    <img src="/images/loppisshoppis3.png" height="300">
   </div>
 </div>
 
@@ -96,11 +107,11 @@
         <li><a href="#">Historia</a></li>
         <li><a href="#">Vet ej</a></li>
       </ul>
-  </ul>
-
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><span id="cartsum">0</span></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
       </ul>
     </div>
   </div>
@@ -131,10 +142,10 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <p>Online Store Copyright</p>
-  <form class="form-inline">Get deals:
-    <input type="email" class="form-control" size="50" placeholder="Email Address">
-    <button type="button" class="btn btn-danger">Sign Up</button>
+  <p>Bli en återvinnare!</p>
+  <form class="form-inline">Anmäl dig till vårt nyhetsbrev:
+    <input type="email" class="form-control" size="50" placeholder="Mejladress">
+    <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
   </form>
 </footer>
 
