@@ -45,10 +45,8 @@ public class ProductController
     }
 
     @PostMapping("/")
-    public String addProduct(HttpSession session)
+    public String addProduct()
     {
-        //session.setAttribute("cart",);
-
         return "frontpage";
     }
 

@@ -49,6 +49,13 @@ footer {
 
 /***** Styling for frontpage *****/
 
+/* Product counter (cartsymbol) */
+.productcounter {
+    color: #FFDD5C;
+    position: absolute;
+    top: -1;
+}
+
 /* Carousel */
 #myCarousel {
     padding: 10px;

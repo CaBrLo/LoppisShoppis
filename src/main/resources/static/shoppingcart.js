@@ -38,7 +38,7 @@ function addProduct(pid,pname,pprice)
     {
         cartData = JSON.parse(localStorage.getItem("cartD"))
         cartData.push(newData)
-        localStorage.setItem("cartD",JSON.stringify(cartData))            
+        localStorage.setItem("cartD",JSON.stringify(cartData))
     }
     
     /*localStorage.setItem("cartD",JSON.stringify(cartData))    
@@ -61,28 +61,20 @@ function printCart()
                    </tr>`
     pricesum = 0
 
-    if(cartData === null)
+    for(let c of cartData)
     {
+        pricesum += c.productPrice
+
         htmltxt += `<tr>
-                        <td>Inga produkter i korgen! :(</td>
-                        <td></td>
-                    </tr>`
-    } else
-    {
-        for(let c of cartData)
-        {
-            pricesum += c.productPrice
-    
-            htmltxt += `<tr>
-                            <td>${c.productName}</td>
-                            <td>${c.productPrice}</td>
-                         </tr>`
-        }
-        htmltxt += `<tr class="spaceOver">
-                    <td>Totalpris: </td>
-                    <td>${pricesum}</td>
-                  </tr>`    
+                        <td>${c.productName}</td>
+                        <td>${c.productPrice}</td>
+                     </tr>`
     }
+    htmltxt += `<tr class="spaceOver">
+                <td>Totalpris: </td>
+                <td>${pricesum}</td>
+              </tr>`
+
     productlist.innerHTML = htmltxt
 }
 
