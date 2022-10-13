@@ -48,7 +48,7 @@ h3 {
 .container-form {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
+  border: 1px solid #257D5E;
   border-radius: 3px;
   margin-left: 200px;
   margin-right: 200px;
@@ -93,6 +93,11 @@ span.price {
   float: right;
   color: grey;
 }
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -166,26 +171,28 @@ span.price {
 <!-- Checkout form -->
 
 <div class="row">
+  <div class="col-25">
+    <div class="container-form">
+      <h4>Dina varor
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+      </h4>
+      <p><a href="#">Product 1</a> <span class="price">200 kr</span></p>
+      <p><a href="#">Product 2</a> <span class="price">99 kr</span></p>
+      <p><a href="#">Product 3</a> <span class="price">149 kr</span></p>
+      <p><a href="#">Product 4</a> <span class="price">25 kr</span></p>
+      <hr>
+      <p>Totalsumma <span class="price" style="color:black"><b>473 kr</b></span></p>
+    </div>
+  </div>
+
   <div class="col-75">
     <div class="container-form">
       <form action="/action_page.php">
 
-        <div class="col-25">
-          <div class="container-form">
-            <h4>Dina varor
-              <span class="price" style="color:black">
-          <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
-        </span>
-            </h4>
-            <p><a href="#">Product 1</a> <span class="price">200 kr</span></p>
-            <p><a href="#">Product 2</a> <span class="price">99 kr</span></p>
-            <p><a href="#">Product 3</a> <span class="price">149 kr</span></p>
-            <p><a href="#">Product 4</a> <span class="price">25 kr</span></p>
-            <hr>
-            <p>Totalsumma <span class="price" style="color:black"><b>473 kr</b></span></p>
-          </div>
-        </div>
+
 
         <div class="row">
           <div class="col-50">
@@ -231,7 +238,7 @@ span.price {
           </div>
 
         </div>
-        <input type="submit" value="Bekräfta köp" class="btn">
+        <input type="submit" value="Bekräfta köp" class="btn" style="background-color:#257D5E">
       </form>
     </div>
   </div>
