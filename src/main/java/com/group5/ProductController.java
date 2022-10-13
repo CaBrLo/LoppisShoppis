@@ -51,4 +51,9 @@ public class ProductController
 
         return "frontpage";
     }
+
+    @GetMapping("/checkout")
+    public String checkout(HttpSession session) {
+        return "checkout";
+    }
 }
