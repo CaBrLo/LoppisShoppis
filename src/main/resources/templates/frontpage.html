@@ -83,7 +83,7 @@
 }
   </style>
 </head>
-<body style="background-color: #D6E9F0;">>
+<body style="background-color: #D6E9F0;">
 
 <!-- Button trigger modal -->
 
@@ -263,18 +263,22 @@
 <div class="container">
     <div class="row">
         <div class="productlisting" th:each="product : ${products}">
-            <div class="col-sm-4">
-                <div class="panel panel-primary stretched-link" id="productpanel">
-                    <div class="panel-heading" th:text="${product.name}" href="'/product/' + ${product.id}"></div>
+            <div class="col-sm-4">a.
+                    <div class="panel panel-primary stretched-link" id="productpanel">
+                        <div class="panel-heading" th:text="${product.category}"
+                             href="'/product/' + ${product.id}"></div>
                         <div class="panel-body">
                             <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
                         </div>
-                    <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
-                    <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
+                        <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
+                        <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer
+                            info</a>
 
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
-                        Köp
-                    </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                th:onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
+                            Köp
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -23,8 +23,10 @@ public class ProductController
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
+        //region används inte i nuläget
         if(session.getAttribute("cart") != null)
             session.setAttribute("cart", new Shoppincart());
+        //endregion
 
         return "frontpage";
     }
@@ -34,6 +36,12 @@ public class ProductController
         Product product = repository.getProduct(id);
         model.addAttribute("product", product);
         return "product";
+    }
+
+    @GetMapping("/cart")
+    public String showCart()
+    {
+        return "cart";
     }
 
     @PostMapping("/")
