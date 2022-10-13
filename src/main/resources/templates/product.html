@@ -1,40 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-  <title>Bootstrap Example</title>
+  <title th:text="'LoppisShoppis: ' + ${product.name}"></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default rounded borders and increase the bottom margin */
-    .navbar {
-      margin-bottom: 50px;
-      border-radius: 0;
-    }
-
-    /* Remove the jumbotron's default bottom margin */
-     .jumbotron {
-      margin-bottom: 0;
-    }
-
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #D6E9F0;
-      padding: 25px;
-    }
-
-    #footerbtn {
-      background-color: #FFDD5C;
-      border-color: #FFDD5C;
-      color: #0E2A36
-    }
-
-    #buybtn{
-      background-color: #3190B5;
-
-    }
 
   </style>
 </head>
@@ -50,6 +25,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         Varan tillagd i varukorgen!
       </div>
@@ -61,53 +37,64 @@
   </div>
 </div>
 
-<body style="background-color: #D6E9F0;">
-
-<div class="jumbotron" style="background-color:#D6E9F0">
-  <div class="container text-center" style="color: #0E2A36">
-    <img src="/images/loppisshoppis3.png" height="300">
+<!-- Header with logo -->
+<div class="jumbotron">
+  <div class="container text-center">
+    <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
   </div>
 </div>
 
-<div class="collapse navbar-collapse" id="myNavbar">
-  <ul class="nav navbar-nav">
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Nyinkommet</a></li>
-        <li><a href="#">Sommarkläder</a></li>
-        <li><a href="#">Rabatterade varor</a></li>
+<!-- Navbar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Nyinkommet</a></li>
+            <li><a href="#">Sommarkläder</a></li>
+            <li><a href="#">Rabatterade varor</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hem & inredning<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Möbler</a></li>
+            <li><a href="#">Akvarium</a></li>
+            <li><a href="#">Tavlor</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Astrid Lindgrens Kollektion</a></li>
+            <li><a href="#">Antika Grekland</a></li>
+            <li><a href="#">Sci-Fi</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Frimärke</a></li>
+            <li><a href="#">Friluft</a></li>
+            <li><a href="#">Test</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vintage <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">1920-1950</a></li>
+            <li><a href="#">1950-1970</a></li>
+            <li><a href="#">1970-2000</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Vision</a></li>
+            <li><a href="#">Historia</a></li>
+            <li><a href="#">Vet ej</a></li>
+          </ul>
       </ul>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hem & inredning<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Möbler</a></li>
-        <li><a href="#">Akvarium</a></li>
-        <li><a href="#">Tavlor</a></li>
-      </ul>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Astrid Lindgrens Kollektion</a></li>
-        <li><a href="#">Antika Grekland</a></li>
-        <li><a href="#">Sci-Fi</a></li>
-      </ul>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Frimärke</a></li>
-        <li><a href="#">Friluft</a></li>
-        <li><a href="#">Test</a></li>
-      </ul>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vintage <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">1920-1950</a></li>
-        <li><a href="#">1950-1970</a></li>
-        <li><a href="#">1970-2000</a></li>
-      </ul>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">Vision</a></li>
-        <li><a href="#">Historia</a></li>
-        <li><a href="#">Vet ej</a></li>
-      </ul>
-      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><span id="cartsum">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
@@ -117,11 +104,12 @@
   </div>
 </nav>
 
-<!-- Produktbild + beskrivning -->
+<!-- Product image and information -->
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <img th:src="${product.image}" class="img-responsive" style="width:100%" alt="Image"></div>
+      <img th:src="${product.image}" class="img-responsive" id="large-productimg"  alt="Image">
+    </div>
     <div class="col-md-6">
 
       <h2><th th:text="${product.name}"></th></h2>
@@ -141,6 +129,7 @@
   </div>
 </div>
 
+<!-- Footer -->
 <footer class="container-fluid text-center">
   <p>Bli en återvinnare!</p>
   <form class="form-inline">Anmäl dig till vårt nyhetsbrev:
