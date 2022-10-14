@@ -56,37 +56,139 @@ public class ProductController
     }
 
 
-    @GetMapping("/Sci-Fi")
+    @GetMapping("/Books/Sci-Fi")
     public String categorySciFi(Model model)
     {
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
-        return "Sci-Fi";
+        return "/Books/Sci-Fi";
     }
 
-    @GetMapping("/AstridLindgrenCollection")
+    @GetMapping("/Books/AstridLindgrenCollection")
     public String categoryAstridLindgrenCollection(Model model)
     {
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
-        return "AstridLindgrenCollection";
+        return "/Books/AstridLindgrenCollection";
     }
-    @GetMapping("/AnticGreece")
+    @GetMapping("/Books/AnticGreece")
     public String categoryAnticGreece(Model model)
     {
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
-        return "AnticGreece";
+        return "/Books/AnticGreece";
     }
 
-    @GetMapping("/AboutUs")
-    public String categoryAboutUs(Model model)
+
+    @GetMapping("/AboutUs/AboutUs")
+    public String categoryAboutUs(Model model) {
+        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/AboutUs/AboutUs";
+    }
+
+    @GetMapping("/Clothes/NewItems")
+    public String categoryNewItems(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "AboutUs";
+        return "/Clothes/NewItems";
+    }
+    @GetMapping("/Clothes/SummerClothes")
+    public String categorySummerClothes(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Clothes/SummerClothes";
+    }
+    @GetMapping("/Clothes/DiscountItems")
+    public String categoryDiscountItems(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Clothes/DiscountItems";
+    }
+    @GetMapping("/Home&style/Furniture")
+    public String categoryFurniture(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Home&style/Furniture";
+    }
+    @GetMapping("/Home&style/Aquarium")
+    public String categoryAquarium(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Home&style/Aquarium";
+    }
+    @GetMapping("/Home&style/Paintings")
+    public String categoryPaintings(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Home&style/Paintings";
+    }
+
+    @GetMapping("/Hobby/Stamp")
+    public String categoryStamp(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Hobby/Stamp";
+    }
+
+    @GetMapping("/Hobby/OpenAir")
+    public String categoryOpenAir(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Hobby/OpenAir";
+    }
+
+    @GetMapping("/Hobby/Movie")
+    public String categoryMovie(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Hobby/Movie";
+    }
+
+    @GetMapping("/AboutUs/History")
+    public String categoryHistory(Model model)
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/AboutUs/History";
+    }
+    @GetMapping("/AboutUs/MoreAboutUs")
+    public String categoryMoreAboutUs(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/AboutUs/MoreAboutUs";
+    }
+    @GetMapping("/Vintage/1920")
+    public String category1920(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Vintage/1920";
+    }
+    @GetMapping("/Vintage/1950")
+    public String category1950(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Vintage/1950";
+    }
+    @GetMapping("/Vintage/1970")
+    public String category1970(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Vintage/1970";
     }
 }

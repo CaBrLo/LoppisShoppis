@@ -10,32 +10,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-
-.zoom-in-out-box {
-  margin: 24px;
-  width: 50px;
-  height: 50px;
-  animation: zoom-in-zoom-out 50s ease infinite;
-}
-
-@keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-    25% {
-    transform: scale(1.25, 1.25);
-  }
-  50% {
-    transform: scale(1.5, 1.5);
-  }
-  75% {
-    transform: scale(1.75, 1.75);
-  }
-  100% {
-    transform: scale(2, 2);
-  }
-}
-
   </style>
 </head>
 <body>
@@ -101,7 +75,7 @@
     <li><span id="cartsum">0</span></li>
     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-    <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
+    <li><a onclick="location.href='/';" id="back-btn"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
   </ul>
 </div>
 </div>

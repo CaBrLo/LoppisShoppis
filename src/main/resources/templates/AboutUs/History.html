@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title th:text="${product.name}"></title>
+  <title>Bootstrap Example</title>
   <link rel="icon" type="image/x-icon" href="/images/logga-liten-ljus.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,28 +10,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
+
   </style>
 </head>
 <body>
 
-<!-- Modal: Cart notification -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel"> En vara har lagts till i varukorgen: </h4>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <ul>
-          <li> Detta behöver uppdateras med en lista av varor </li>
-        </ul>
+        Varan tillagd i varukorgen!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='/cart'">Gå till varukorgen</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -44,16 +43,15 @@
   </div>
 </div>
 
-<!-- Navbar -->
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid" style="background-color:#0E2A36;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/images/logga-liten.svg" id="navbarlogo" onclick="location.href='/';">
+      <a class="navbar-brand" href="#"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -71,9 +69,9 @@
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Astrid Lindgrens Kollektion</a></li>
-            <li><a href="#">Antika Grekland</a></li>
-            <li><a href="#">Sci-Fi</a></li>
+            <li><a href="/AstridLindgrenCollection">Astrid Lindgrens Kollektion</a></li>
+            <li><a href="/AnticGreece">Antika Grekland</a></li>
+            <li><a href="/Sci-Fi">Sci-Fi</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -87,9 +85,9 @@
             <li><a href="#">1950-1970</a></li>
             <li><a href="#">1970-2000</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" onclick="location.href='/AboutUs';" style="cursor: pointer;">Om oss <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Vision</a></li>
+            <li><a href="/AboutUs">Vision</a></li>
             <li><a href="#">Historia</a></li>
             <li><a href="#">Vet ej</a></li>
           </ul>
@@ -98,38 +96,36 @@
         <li><span id="cartsum">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-        <li><a onclick="location.href='/';" id="back-btn"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
+        <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
-<!-- Product image and information -->
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <img th:src="${product.image}" class="img-responsive" id="large-productimg"  alt="Image">
-    </div>
-    <div class="col-md-6">
+    <div class="productlisting" th:each="product : ${products}">
+      <div class="col-sm-4" th:if="${product.category =='History'}">
+        <div class="panel panel-primary stretched-link" id="productpanel">
+          <div class="panel-heading" th:text="${product.category}" href="'/product/' + ${product.id}"></div>
+          <div class="panel-body">
+            <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
+          </div>
+          <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
+          <a class="btn btn-primary " th:href="'/product/' + ${product.id}" >Mer info</a>
 
-      <h2><th th:text="${product.name}"></th></h2>
-      <h3><th th:text="${product.price} + ' kr'"></th></h3>
-      <h4><th th:text="${product.description}"></th></h4>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Köp
-      </button>
-
-      <div class="purchaseinfo">
-        <br>
-        &#x2611; Skickas inom 2-3 dagar &ensp;
-        &#x2611; Fri frakt över 299 kr &ensp;
-        &#x2611; Miljövänligt &ensp;
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
+            Köp
+          </button>
+        </div>
       </div>
+
     </div>
   </div>
+</div><br><br>
+<div id="test2"></div>
+<div id="test">
 </div>
 
-<!-- Footer -->
 <footer class="container-fluid text-center">
   <p>Bli en återvinnare!</p>
   <form class="form-inline">Anmäl dig till vårt nyhetsbrev:
@@ -137,8 +133,6 @@
     <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
   </form>
 </footer>
-
-<script src="shoppingcart.js"></script>
 
 </body>
 </html>
