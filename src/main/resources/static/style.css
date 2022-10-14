@@ -34,8 +34,7 @@ body {
 
 #navbarlogo {
     width: 50px;
-
-
+    cursor: pointer;
 }
 
 /* Footer */
@@ -96,6 +95,7 @@ footer {
 
 .panel-primary>.panel-heading {
     background-color: #257D5E;
+    cursor: pointer;
 }
 
 .panel-primary>.panel-heading:hover {
