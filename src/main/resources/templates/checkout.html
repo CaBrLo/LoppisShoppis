@@ -29,7 +29,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <img src="/images/logga-liten.svg" id="navbarlogo" onclick="location.href='/'">
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -92,14 +92,19 @@
           <b>4</b>
         </span>
       </h4>
-      <p><a href="#">Product 1</a> <span class="price">200 kr</span></p>
+      <p><span class="">Product 1</span> <span class="price">200 kr</span></p>
       <p><a href="#">Product 2</a> <span class="price">99 kr</span></p>
       <p><a href="#">Product 3</a> <span class="price">149 kr</span></p>
       <p><a href="#">Product 4</a> <span class="price">25 kr</span></p>
+
+      <hr>
+      <label for="discount">Lägg till rabattkod: <input type="text" id="discount" name="discount" placeholder=""></label>
+
       <hr>
       <p>Totalsumma <span class="price" id="checkout-totamount"><b>473 kr</b></span></p>
     </div>
   </div>
+
 
   <div class="col-75">
     <div class="container-form">
@@ -147,6 +152,7 @@
               </div>
             </div>
           </div>
+
 
         </div>
         <input type="submit" value="Bekräfta köp" class="btn" >
