@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>LoppisShoppis</title>
+    <title>Varukorgen</title>
     <link rel="icon" type="image/x-icon" href="/images/logga-liten-ljus.svg">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,32 +18,7 @@
 
   </style>
 </head>
-<body style="background-color: #D6E9F0;" onload="printCart()">
-
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                Varan tillagd i varukorgen!
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+<body onload="printCart()">
 
 <!-- Header with logo -->
 <div class="jumbotron">
@@ -61,8 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!--            <a class="navbar-brand" href="#"></a>   -->
-            <img src="/images/logga-liten-ljus.svg" id="navbarlogo">
+            <img src="/images/logga-liten.svg" id="navbarlogo">
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -108,13 +82,13 @@
                 <li><span id="cartsum">0</span></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
+                <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- Slut på header -->
 
-<!-- Kundkorgen -->
+<!-- Cart -->
 <div class="container">
     <table style="width:50%" class="listofproducts">
     </table>
@@ -131,6 +105,7 @@
         <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
     </form>
 </footer>
+
 <script src="shoppingcart.js"></script>
 
 </body>
