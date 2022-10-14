@@ -203,7 +203,8 @@ tr.spaceOver>td {
     font-weight: 400;
 }
 
-.container-form .price {
+.container-form #checkout-prodamount,
+.container-form #checkout-totamount {
     color: black;
 }
 
