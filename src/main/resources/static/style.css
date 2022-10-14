@@ -32,6 +32,12 @@ body {
     border-radius: 0;
 }
 
+#navbarlogo {
+    width: 50px;
+
+
+}
+
 /* Footer */
 footer {
     background-color: #D6E9F0;
@@ -68,21 +74,32 @@ footer {
 }
 
 /* Product listing */
+.btn-primary {
+    background-color: #257D5E;
+    border-color: #257D5E;
+
+}
+
 .btn-primary:hover {
-    background:  #2098ff;
+    background-color:  #0E2A36;
     color:  #fff;
 }
 
+.panel-primary {
+    /* Background for panel */
+    border-color: #257D5E;
+}
+
 .panel-primary:hover {
-    border-color:  #2098ff;
+    border-color:  #0E2A36;
 }
 
 .panel-primary>.panel-heading {
-    background-color: #3190B5;
+    background-color: #257D5E;
 }
 
 .panel-primary>.panel-heading:hover {
-    background-color:  #2098ff;
+    background-color:  #0E2A36;
                color:  white;
 }
 
