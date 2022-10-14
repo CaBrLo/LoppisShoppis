@@ -10,13 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-
-    tr.spaceOver>td 
-    {
-        padding-top: 1em;
-    }
-
-  </style>
+    </style>
 </head>
 <body onload="printCart()">
 
@@ -36,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img src="/images/logga-liten.svg" id="navbarlogo">
+            <img src="/images/logga-liten.svg" id="navbarlogo" onclick="location.href='/'">
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -82,7 +76,7 @@
                 <li><span id="cartsum">0</span></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-                <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
+                <li><a onclick="location.href='/';" id="back-btn"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
             </ul>
         </div>
     </div>
@@ -90,7 +84,7 @@
 
 <!-- Cart -->
 <div class="container">
-    <table style="width:50%" class="listofproducts">
+    <table class="listofproducts">
     </table>
 
     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="emptyCart()">Töm vagnen</button>
