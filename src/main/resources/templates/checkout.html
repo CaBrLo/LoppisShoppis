@@ -163,7 +163,7 @@ span.price {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><span id="cartsum">0</span></li>
+        <li><span id="cartsum" class="productsummation">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
         <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
@@ -180,15 +180,13 @@ span.price {
       <h4>Dina varor
         <span class="price" style="color:black">
           <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
+          <b><span class="productsummation">0</span></b>
         </span>
       </h4>
-      <p><a href="#">Product 1</a> <span class="price">200 kr</span></p>
-      <p><a href="#">Product 2</a> <span class="price">99 kr</span></p>
-      <p><a href="#">Product 3</a> <span class="price">149 kr</span></p>
-      <p><a href="#">Product 4</a> <span class="price">25 kr</span></p>
+      <div class="listofproducts">
+      </div>
       <hr>
-      <p>Totalsumma <span class="price" style="color:black"><b>473 kr</b></span></p>
+      <p>Totalsumma <span class="price" style="color:black"><b><span class="pricesummation">473 kr</span></b></span></p>
     </div>
   </div>
 

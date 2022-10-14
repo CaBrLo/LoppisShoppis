@@ -1,100 +1,152 @@
-let sum = document.getElementById("cartsum")
-let productlist = document.querySelector(".listofproducts")
+updateProductSummation()
+updatePriceSummation()
+updateFullSummation()
 
-/*  Testdata */
-let cartData = [
-    {productId: '00', productName: "Tale of Sushi", productPrice: 199},
-    {productId: '03', productName: "Illiaden", productPrice: 199}
-]
-
-updateSum()
-printCart()
-function initCart()
-{
-    if(sessionStorage.getItem("cartD") != null)
-    {
-        cartData = JSON.parse(sessionStorage.getItem("cartD"))
-    } 
-}
-
-function updateSum()
-{
-    sum = document.getElementById("cartsum")
-
-    if(cartData === null || cartData.length === undefined)
-    {
-        sum.innerText = "0"
-    } else
-    {
-        sum.innerText = cartData.length
-    }
-}
-
-let isInit = true;
+/*  Skriv ut hela kundkorgen med produkter och priser.*/
 function addProduct(pid,pname,pprice)
 {
-    /*
+    // Todo: knapp för att ta bort
     let newData = {productId: pid, productName: pname, productPrice: pprice}
-    if(sessionStorage.getItem("cartD") === null)
-    {
-        cartData.push(newData)
-        sessionStorage.setItem("cartD",JSON.stringify(newData))
-    } else
-    {
-        cartData = JSON.parse(sessionStorage.getItem("cartD"))
-        cartData.push(newData)
-        sessionStorage.setItem("cartD",JSON.stringify(cartData))
-    }*/
-    let newData = {productId: pid, productName: pname, productPrice: pprice}
-    if(isInit)
-    {
-       cartData.push(newData)
-       sessionStorage.setItem("cartD",JSON.stringify(cartData))
-       isInit = false;
-    } else
-    {
-       cartData = JSON.parse(sessionStorage.getItem("cartD"))
-       cartData.push(newData)
-       sessionStorage.setItem("cartD",JSON.stringify(cartData))
-    }
+    let cartData = getStorage()
 
-    if(sum != null)
-    {
-        updateSum()
-    }
-    printCart()
+    cartData.push(newData)
+    localStorage.setItem("data",JSON.stringify(cartData))
+    
+    updateBuyModal()
+    updateProductSummation()
+    updatePriceSummation()
+    updateFullSummation()
 }
 
-// För att printa ut information till cart.html
-function printCart()
+/*  Uppdatera summerad köpbekräftelse
+    För att använda, lägg till klassen cartsummation */
+function updateBuyModal()
 {
-    productlist = document.querySelector(".listofproducts")
-    let htmltxt = `<tr>
-                        <th><h4>Produkt</h4></th>
-                        <th><h4>Pris</h4></th>
-                   </tr>`
-    pricesum = 0
+    let modalItem = document.querySelector(".cartsummation")
+    
+    if(modalItem != null)
+    {
+        numOfProducts = sumProducts()
+        numOfPrice = sumPrice()
+        
+        if(modalItem != null)
+        {
+            modalItem.innerHTML =   `<ul>
+                                        <li>Du har ${numOfProducts} produkter i kundkorgen till en totalsumma av ${numOfPrice} </li>
+                                    </ul>`
+        }
+    }
+}
+
+/*  Uppdatera summering av priset för alla produkter i varukorgen
+    För att använda, lägg till klassen pricesummation */
+function updatePriceSummation()
+{
+    let sumtxt = document.getElementsByClassName("pricesummation")
+
+    for(let s of sumtxt)
+    {
+        s.innerText = sumPrice()
+    }
+}
+
+/*  Uppdatera summering av antalet produkter
+    För att använda, lägg till klassen productsummation */
+function updateProductSummation()
+{
+    //let sumtxt = document.getElementById("cartsum")
+    let sumtxt = document.getElementsByClassName("productsummation")
+
+    for(let s of sumtxt)
+    {
+        s.innerText = sumProducts()
+    }
+}
+
+/*  Uppdatera uförlig köpbekräftelse
+    För att använda, lägg till klassen listofproducts */
+function updateFullSummation()
+{
+    let alist = document.querySelector(".listofproducts")
+
+    let htmltxt = ""
+    let cartData = new Array()
+    cartData = getStorage()
 
     for(let c of cartData)
     {
-        pricesum += c.productPrice
-
-        htmltxt += `<tr>
-                        <td>${c.productName}</td>
-                        <td>${c.productPrice}</td>
-                     </tr>`
+        htmltxt += `<p><a href="/product/${c.productId}">${c.productName}</a> <span class="price">${c.productPrice} kr</span></p>`
     }
-    htmltxt += `<tr class="spaceOver">
-                <td>Totalpris: </td>
-                <td>${pricesum}</td>
-              </tr>`
-
-    productlist.innerHTML = htmltxt
+    alist.innerHTML = htmltxt
 }
 
+/*  Uppdatera uförlig köpbekräftelse (med ta bort funktion, anpassad för cart.html)
+    För att använda, lägg till klassen listofproducts */
+function updateFullSummation()
+{
+    let alist = document.querySelector(".listofproducts")
+
+    let htmltxt = ""
+    let cartData = new Array()
+    cartData = getStorage()
+
+    for(let c of cartData)
+    {
+        htmltxt += `<p><a href="/product/${c.productId}">${c.productName}</a> <span class="price">${c.productPrice} kr</span></p>`
+    }
+    alist.innerHTML = htmltxt
+}
+
+// Hjälpfunktion för att summera antalet varor i korgen
+function sumProducts()
+{
+    let cartData = getStorage()
+
+    let productsum = 0
+    for(let c of cartData)
+    {
+        productsum += 1
+    }
+
+    return productsum
+}
+
+// Hjälpfunktion som summerar priset på varorna i korgen
+function sumPrice()
+{
+    let cartData = getStorage()
+
+    let pricesum = 0
+    for(let c of cartData)
+    {
+        pricesum += c.productPrice
+    }
+
+    return pricesum
+}
+
+// Töm varukorgen, används på cart.html
 function emptyCart()
 {
-    sessionStorage.clear()
-    cartData = null;
-    printCart();
+    localStorage.removeItem("data")
+
+    updateProductSummation()
+    updatePriceSummation()
+    updateFullSummation()
+}
+
+// Hjälpfunktion för att initiera/hämta produktlista i session
+function getStorage()
+{
+    let cartD = new Array()
+
+    if(localStorage.getItem("data") === null)
+    {
+        localStorage.setItem("data",JSON.stringify(cartD))
+    } else
+    {
+        cartD = JSON.parse(localStorage.getItem("data"))
+    }
+
+    return cartD
 }
