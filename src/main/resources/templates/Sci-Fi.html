@@ -35,9 +35,10 @@
     </div>
 </div>
 
-<div class="jumbotron" style="background-color:#D6E9F0">
-    <div class="container text-center" style="color: #0E2A36">
-        <img onclick="location.href='/';" style="cursor: pointer;" src="/images/loppisshoppis3.png" height="300">
+<!-- Header with logo -->
+<div class="jumbotron">
+    <div class="container text-center">
+        <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
     </div>
 </div>
 
@@ -99,7 +100,7 @@
                         <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
                     </div>
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
-                    <a class="btn btn-primary " th:href="'/product/' + ${product.id}" style="cursor: pointer;">Mer info</a>
+                    <a class="btn btn-primary " th:href="'/product/' + ${product.id}">Mer info</a>
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
                         Köp
