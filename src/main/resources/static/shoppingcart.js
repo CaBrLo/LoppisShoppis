@@ -30,6 +30,7 @@ function updateSum()
     }
 }
 
+let isInit = true;
 function addProduct(pid,pname,pprice)
 {
     /*
@@ -45,10 +46,17 @@ function addProduct(pid,pname,pprice)
         sessionStorage.setItem("cartD",JSON.stringify(cartData))
     }*/
     let newData = {productId: pid, productName: pname, productPrice: pprice}
-
-    cartData.push(newData)
-    cartData = JSON.parse(sessionStorage.getItem("cartD"))
-    sessionStorage.setItem("cartD",JSON.stringify(cartData))
+    if(isInit)
+    {
+       cartData.push(newData)
+       sessionStorage.setItem("cartD",JSON.stringify(cartData))
+       isInit = false;
+    } else
+    {
+       cartData = JSON.parse(sessionStorage.getItem("cartD"))
+       cartData.push(newData)
+       sessionStorage.setItem("cartD",JSON.stringify(cartData))
+    }
 
     if(sum != null)
     {
