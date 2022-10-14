@@ -11,96 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-/***** Styling for checkout form *****/
-
-h3 {
-    font-family: "Segoe UI",Arial,sans-serif;
-    font-weight: 400;
-}
-
-  .row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
-.container-form {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid #257D5E;
-  border-radius: 3px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-
-}
-
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-label {
-  margin-bottom: 10px;
-  display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-.btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-span.price {
-  float: right;
-  color: grey;
-}
-
-
-
   </style>
 </head>
 <body>
@@ -166,7 +76,7 @@ span.price {
         <li><span id="cartsum">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-        <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
+        <li><a onclick="location.href='/';" id="back-btn"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
       </ul>
     </div>
   </div>
@@ -174,11 +84,11 @@ span.price {
 
 <!-- Checkout form -->
 
-<div class="row">
+<div class="checkout-row">
   <div class="col-25">
     <div class="container-form">
       <h4>Dina varor
-        <span class="price" style="color:black">
+        <span class="price">
           <i class="fa fa-shopping-cart"></i>
           <b>4</b>
         </span>
@@ -188,7 +98,7 @@ span.price {
       <p><a href="#">Product 3</a> <span class="price">149 kr</span></p>
       <p><a href="#">Product 4</a> <span class="price">25 kr</span></p>
       <hr>
-      <p>Totalsumma <span class="price" style="color:black"><b>473 kr</b></span></p>
+      <p>Totalsumma <span class="price"><b>473 kr</b></span></p>
     </div>
   </div>
 
@@ -196,7 +106,7 @@ span.price {
     <div class="container-form">
       <form action="/action_page.php">
 
-        <div class="row">
+        <div class="checkout-row">
           <div class="col-50">
             <h3>Leveransadress</h3>
             <label for="fname"><i class="fa fa-user"></i> För- och efternamn</label>
@@ -206,7 +116,7 @@ span.price {
             <label for="adr"><i class="fa fa-address-card-o"></i> Adress</label>
             <input type="text" id="adr" name="address" placeholder="Storgatan 15A">
 
-            <div class="row">
+            <div class="checkout-row">
               <div class="col-50">
                 <label for="postnum">Postnummer</label>
                 <input type="text" id="postnum" name="postnum" placeholder="12345">
@@ -227,7 +137,7 @@ span.price {
              <label for="expmonth">Giltighetstid månad</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="MM">
 
-            <div class="row">
+            <div class="checkout-row">
               <div class="col-50">
                 <label for="expyear">Giltighetstid år </label>
                 <input type="text" id="expyear" name="expyear" placeholder="YY">
@@ -240,7 +150,7 @@ span.price {
           </div>
 
         </div>
-        <input type="submit" value="Bekräfta köp" class="btn" style="background-color:#257D5E">
+        <input type="submit" value="Bekräfta köp" class="btn" >
       </form>
     </div>
   </div>

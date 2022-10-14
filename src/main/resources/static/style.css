@@ -37,6 +37,10 @@ body {
     cursor: pointer;
 }
 
+#back-btn {
+    cursor: pointer;
+}
+
 /* Footer */
 footer {
     background-color: #D6E9F0;
@@ -146,7 +150,128 @@ footer {
   transform: translate(-50%, -50%);
 }
 
+/***** Styling for cart page *****/
 
+.listofproducts {
+    width: 50%;
+}
 
+tr.spaceOver>td {
+    padding-top: 1em;
+}
 
+/***** Styling for about us page *****/
 
+.zoom-in-out-box {
+  margin: 24px;
+  width: 50px;
+  height: 50px;
+  animation: zoom-in-zoom-out 50s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+    25% {
+    transform: scale(1.25, 1.25);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  75% {
+    transform: scale(1.75, 1.75);
+  }
+  100% {
+    transform: scale(2, 2);
+  }
+}
+
+/***** Styling for checkout page *****/
+
+.container-form {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid #257D5E;
+    border-radius: 3px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container-form h3 {
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 400;
+}
+
+.container-form .price {
+    color: black;
+}
+
+.container-form .btn {
+    background-color: #257D5E;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.container-form .btn:hover {
+    background-color:  #0E2A36;
+}
+
+.container-form input[type=text] {
+    /* Billing info - input */
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container-form label {
+    /* Billing info headers */
+    margin-bottom: 10px;
+    display: block;
+}
+
+.container-form span.price {
+    float: right;
+    color: grey;
+}
+
+.checkout-row {
+    /* rows on the checkout page */
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.checkout-row .col-25 {
+    /* Text: purchases & sum in container with products */
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+}
+
+.checkout-row .col-50 {
+    /* Text: Billing info */
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.checkout-row .col-75 {
+    /* Text: Billing info */
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+.checkout-row .col-25,
+.checkout-row .col-50,
+.checkout-row .col-75 {
+    padding: 0 16px;
+}
