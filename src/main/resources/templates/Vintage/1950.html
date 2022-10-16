@@ -104,7 +104,7 @@
 <div class="container">
   <div class="row">
     <div class="productlisting" th:each="product : ${products}">
-      <div class="col-sm-4" th:if="${product.category =='Stamp'}">
+      <div class="col-sm-4" th:if="${product.category =='1950-1970'}">
         <div class="panel panel-primary stretched-link" id="productpanel">
           <div class="panel-heading" th:text="${product.category}" href="'/product/' + ${product.id}"></div>
           <div class="panel-body">

@@ -51,7 +51,7 @@ public class ProductController
     }
 
     @GetMapping("/checkout")
-    public String checkout(HttpSession session) {
+    public String checkout() {
         return "checkout";
     }
 
@@ -90,47 +90,63 @@ public class ProductController
         return "/AboutUs/AboutUs";
     }
 
-    @GetMapping("/Clothes/NewItems")
+    @GetMapping("/Clothes/Women")
     public String categoryNewItems(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Clothes/NewItems";
+        return "/Clothes/Women";
     }
-    @GetMapping("/Clothes/SummerClothes")
+    @GetMapping("/Clothes/Men")
     public String categorySummerClothes(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Clothes/SummerClothes";
+        return "/Clothes/Men";
     }
-    @GetMapping("/Clothes/DiscountItems")
+    @GetMapping("/Clothes/Children")
     public String categoryDiscountItems(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Clothes/DiscountItems";
+        return "/Clothes/Children";
     }
-    @GetMapping("/Home&style/Furniture")
-    public String categoryFurniture(Model model)
+
+    @GetMapping("/Clothes/allClothes")
+    public String categoryAllClothes(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Home&style/Furniture";
+        return "/Clothes/allClothes";
     }
-    @GetMapping("/Home&style/Aquarium")
-    public String categoryAquarium(Model model)
+    @GetMapping("/Home/allHome")
+    public String categoryHome(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Home&style/Aquarium";
+        return "/Home/allHome";
     }
-    @GetMapping("/Home&style/Paintings")
-    public String categoryPaintings(Model model)
+    @GetMapping("/Home/homeDecor")
+    public String categoryHomeDecor(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Home&style/Paintings";
+        return "/Home/homeDecor";
+    }
+    @GetMapping("/Home/kitchenSupplies")
+    public String categoryKitchenSupllies(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Home/kitchenSupplies";
+    }
+
+    @GetMapping("/Home/electronics")
+    public String categoryElectronics(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Home/electronics";
     }
 
     @GetMapping("/Hobby/Stamp")
