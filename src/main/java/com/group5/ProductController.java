@@ -55,33 +55,39 @@ public class ProductController
         return "checkout";
     }
 
-
-    @GetMapping("/Books/Sci-Fi")
-    public String categorySciFi(Model model)
+    @GetMapping("/Books/fiction")
+    public String categoryFiction(Model model)
     {
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
-        return "/Books/Sci-Fi";
+        return "/Books/fiction";
     }
 
-    @GetMapping("/Books/AstridLindgrenCollection")
-    public String categoryAstridLindgrenCollection(Model model)
+    @GetMapping("/Books/childrensBooks")
+    public String categoryChildrensBooks(Model model)
     {
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
-        return "/Books/AstridLindgrenCollection";
+        return "/Books/childrensBooks";
     }
-    @GetMapping("/Books/AnticGreece")
-    public String categoryAnticGreece(Model model)
+    @GetMapping("/Books/non-fiction")
+    public String categoryNonFiction(Model model)
     {
         List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
 
-        return "/Books/AnticGreece";
+        return "/Books/non-fiction";
     }
 
+    @GetMapping ("/Books/allBooks")
+    public String categoryAllBooks(Model model) {
+        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+
+        return "/Books/allBooks";
+    }
 
     @GetMapping("/AboutUs/AboutUs")
     public String categoryAboutUs(Model model) {
@@ -133,42 +139,58 @@ public class ProductController
         return "/Home&style/Paintings";
     }
 
-    @GetMapping("/Hobby/Stamp")
-    public String categoryStamp(Model model)
+    @GetMapping("/Hobby/sport")
+    public String categorySport(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Hobby/Stamp";
+        return "/Hobby/sport";
     }
 
-    @GetMapping("/Hobby/OpenAir")
-    public String categoryOpenAir(Model model)
+    @GetMapping("/Hobby/toys")
+    public String categoryToys(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Hobby/OpenAir";
+        return "/Hobby/toys";
     }
 
-    @GetMapping("/Hobby/Movie")
-    public String categoryMovie(Model model)
+    @GetMapping("/Hobby/hobbiesAndGames")
+    public String categoryHobbiesAndGames(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/Hobby/Movie";
+        return "/Hobby/hobbiesAndGames";
     }
 
-    @GetMapping("/AboutUs/History")
-    public String categoryHistory(Model model)
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/AboutUs/History";
-    }
-    @GetMapping("/AboutUs/MoreAboutUs")
-    public String categoryMoreAboutUs(Model model)
+    @GetMapping("/Hobby/moviesAndMusic")
+    public String categoryMoviesAndMusic(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
-        return "/AboutUs/MoreAboutUs";
+        return "/Hobby/moviesAndMusic";
+    }
+
+    @GetMapping("/Hobby/allHobbies")
+    public String categoryAllHobbies(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/Hobby/allHobbies";
+    }
+
+    @GetMapping("/AboutUs/contact")
+    public String categoryContact(Model model)
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/AboutUs/contact";
+    }
+    @GetMapping("/AboutUs/faq")
+    public String categoryFaq(Model model)
+
+    {        List<Product> products = repository.getProducts();
+        model.addAttribute("products", products);
+        return "/AboutUs/faq";
     }
     @GetMapping("/Vintage/1920")
     public String category1920(Model model)
@@ -191,4 +213,6 @@ public class ProductController
         model.addAttribute("products", products);
         return "/Vintage/1970";
     }
+
+
 }
