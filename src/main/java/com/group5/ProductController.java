@@ -185,6 +185,13 @@ public class ProductController
         model.addAttribute("products", products);
         return "/AboutUs/contact";
     }
+
+    @PostMapping("/AboutUs/contact")
+    public String sendForm() {
+        return "/AboutUs/contact";
+    }
+
+
     @GetMapping("/AboutUs/faq")
     public String categoryFaq(Model model)
 

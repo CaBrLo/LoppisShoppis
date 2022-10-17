@@ -111,9 +111,10 @@
     <div class="productlisting" th:each="product : ${products}">
       <div class="col-sm-4" th:if="${product.category =='Aquarium'}">
         <div class="panel panel-primary stretched-link" id="productpanel">
-          <div class="panel-heading" th:text="${product.name}" href="'/product/' + ${product.id}"></div>
+          <div class="panel-heading" th:text="${product.name}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
           <div class="panel-body">
-            <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
+            <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
+                 th:onclick="'location.href=\'/product/' + ${product.id} + '\''">
           </div>
           <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
           <a class="btn btn-primary " th:href="'/product/' + ${product.id}" >Mer info</a>
