@@ -15,22 +15,25 @@
 </head>
 <body>
 
-<!-- Modal -->
+<!-- Modal: Cart notification -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h4 class="modal-title" id="exampleModalLabel"> En vara har lagts till i varukorgen: </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                Varan tillagd i varukorgen!
+            <!-- Använd klassen cartsummation för en summering och cartlist för en utförlig lista -->
+            <div class="modal-body cartsummation">
+                <ul>
+                    <li> Detta behöver uppdateras med en lista av varor </li>
+                </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/cart'">Gå till varukorgen</button>
             </div>
         </div>
     </div>
@@ -43,72 +46,72 @@
     </div>
 </div>
 
+<!-- Navbar -->
 <nav class="navbar navbar-inverse">
-    <div class="container-fluid" style="background-color:#0E2A36;">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"></a>
+            <img src="/images/logga-liten-ljus.svg" id="navbarlogo" onclick="location.href='/'">
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder & Skor <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/Clothes/allClothes">Alla kläder</a></li>
+                        <li><a href="/Clothes/allClothes">Allt inom Kläder & Skor</a></li>
                         <li><a href="/Clothes/Women">Dam</a></li>
                         <li><a href="/Clothes/Men">Herr</a></li>
                         <li><a href="/Clothes/Children">Barn</a></li>
                     </ul>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hemmet<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/Home/allHome">Allt för hemmet</a></li>
+                        <li><a href="/Home/allHome">Allt för Hemmet</a></li>
                         <li><a href="/Home/homeDecor">Inredning</a></li>
                         <li><a href="/Home/electronics">Hemelektronik</a></li>
-                        <li><a href="/Home/kitchenSupplies">Husgeråd</a></li>
+                        <li><a href="Home/kitchenSupplies">Husgeråd</a></li>
                     </ul>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/AstridLindgrenCollection">Astrid Lindgrens Kollektion</a></li>
-                        <li><a href="/AnticGreece">Antika Grekland</a></li>
-                        <li><a href="/Sci-Fi">Sci-Fi</a></li>
+                        <li><a href="/Books/allBooks">Alla Böcker</a></li>
+                        <li><a href="/Books/childrensBooks">Barnböcker</a></li>
+                        <li><a href="/Books/non-fiction">Facklitteratur</a></li>
+                        <li><a href="/Books/fiction">Skönlitteratur</a></li>
                     </ul>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Frimärke</a></li>
-                        <li><a href="#">Friluft</a></li>
-                        <li><a href="#">Test</a></li>
+                        <li><a href="/Hobby/allHobbies">Allt inom Hobby & Fritid</a></li>
+                        <li><a href="/Hobby/hobbiesAndGames">Hobby & Spel</a></li>
+                        <li><a href="/Hobby/moviesAndMusic">Film & Musik</a></li>
+                        <li><a href="/Hobby/sport">Sport & Fritid </a></li>
+                        <li><a href="/Hobby/toys">Leksaker</a></li>
                     </ul>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vintage <span class="caret"></span></a>
+
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">1920-1950</a></li>
-                        <li><a href="#">1950-1970</a></li>
-                        <li><a href="#">1970-2000</a></li>
-                    </ul>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" onclick="location.href='/AboutUs';" style="cursor: pointer;">Om oss <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/AboutUs">Vision</a></li>
-                        <li><a href="#">Historia</a></li>
-                        <li><a href="#">Vet ej</a></li>
+                        <li><a href="/AboutUs/AboutUs">Vår vision</a></li>
+                        <li><a href="/AboutUs/contact">Kontakta oss</a></li>
+                        <li><a href="/AboutUs/faq">Vanliga frågor</a></li>
                     </ul>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><span id="cartsum">0</span></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-                <li><a onclick="location.href='/';" style="cursor: pointer;"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
+                <li><span id="cartsum" class="productsummation productcounter">0</span></li>
+                <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
             </ul>
         </div>
     </div>
+</nav>
+
 </nav>
 <div class="container">
     <div class="row">
         <div class="productlisting" th:each="product : ${products}">
             <div class="col-sm-4" th:if="${product.category =='Inredning' OR product.category == 'Husgeråd' OR product.category == 'Hemelektronik'}">
                 <div class="panel panel-primary stretched-link" id="productpanel">
-                    <div class="panel-heading" th:text="${product.category}" href="'/product/' + ${product.id}"></div>
+                    <div class="panel-heading" th:text="${product.name}" href="'/product/' + ${product.id}"></div>
                     <div class="panel-body">
                         <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
                              th:onclick="'location.href=\'/product/' + ${product.id} + '\''">
