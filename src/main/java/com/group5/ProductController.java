@@ -215,27 +215,4 @@ public class ProductController
         model.addAttribute("products", products);
         return "/AboutUs/faq";
     }
-    @GetMapping("/Vintage/1920")
-    public String category1920(Model model)
-
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/Vintage/1920";
-    }
-    @GetMapping("/Vintage/1950")
-    public String category1950(Model model)
-
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/Vintage/1950";
-    }
-    @GetMapping("/Vintage/1970")
-    public String category1970(Model model)
-
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/Vintage/1970";
-    }
-
-
 }

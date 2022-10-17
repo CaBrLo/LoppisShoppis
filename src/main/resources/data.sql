@@ -10,7 +10,7 @@ INSERT INTO PRODUCT (NAME, PRICE, DESCRIPTION, CATEGORY, IMAGE) VALUES
 ('Tant Grön, Tant Brun och Tant Gredelin',199,'Författare: Elsa Beskow. Utgiven: 1920. Skick: Gott.', 'Barnböcker', '/images/tantgron.jpg'),
 ('1984',99,'Författare: George Orwell. Utgiven: 1980. Skick: Ny.', 'Facklitteratur', '/images/1984.jpg'),
 ('Java direkt',99,'Författare: Jan Skansholm. Utgiven: 1999. Skick: Mycket bra.', 'Facklitteratur', '/images/javadirekt.jpg'),
-('Nintendo 64', 799,'Spelkonsol med tillhörande spel (Super Mario 64). Skick: Bra.', 'Hobby & Spel', '/images/n64.jpg'),
+('Spelkonsol: Nintendo 64', 799,'Spelkonsol med tillhörande spel (Super Mario 64). Skick: Bra.', 'Hobby & Spel', '/images/n64.jpg'),
 ('Skridskor',199,'Storlek 36. Skick: Välanvänd.', 'Sport & Fritid', '/images/skridsko.jpg'),
 ('Boxningssäck',499,'Everlast Supreme - Lights Out. Skick: Bra.', 'Sport & Fritid', '/images/bag.jpg'),
 ('Ramones - End of the Century', 199,'Vinylskiva. Utgiven: 1980. Skick: Bra.', 'Film & Musik', '/images/ramones.jpg'),

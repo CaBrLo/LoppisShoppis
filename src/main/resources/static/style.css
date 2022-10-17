@@ -11,6 +11,7 @@ Color scheme:
 
 body {
     background-color: #D6E9F0;
+    color: #0E2A36;
 }
 
 /* Header */
@@ -32,15 +33,47 @@ body {
     border-radius: 0;
 }
 
+.navbar-inverse .navbar-nav>li>a {
+     color: #D6E9F0;
+}
+
 #navbarlogo {
     width: 50px;
     cursor: pointer;
 }
 
-#back-btn {
-    cursor: pointer;
+.nav .dropdown:hover {              /* Ska vi ha detta?*/
+    background-color: #257D5E;
+    color: #f2f2f2;
 }
 
+.nav .dropdown-menu {
+    background-color: #0E2A36;
+
+}
+
+.nav .dropdown-menu>li>a {
+    color: #D6E9F0;
+}
+
+.nav .dropdown-menu>li>a:hover {
+    background-color: #257D5E;
+    color: #f2f2f2;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus,
+.navbar-inverse .navbar-nav>.open>a:hover {
+    background-color: #257D5E;
+    color: #f2f2f2;
+}
+
+
+
+/* Body */
+
+.page-header {
+    text-align: center;
+}
 /* Footer */
 footer {
     background-color: #D6E9F0;
@@ -78,12 +111,15 @@ footer {
 .btn-primary {
     background-color: #257D5E;
     border-color: #257D5E;
-
 }
 
 .btn-primary:hover {
-    background-color:  #0E2A36;
-    color:  #fff;
+    background-color: #0E2A36;
+    color:  #D6E9F0;
+}
+
+.panel, .panel-footer, .panel-body {
+    background-color: #f2f2f2;
 }
 
 .panel-primary {
@@ -97,12 +133,13 @@ footer {
 
 .panel-primary>.panel-heading {
     background-color: #257D5E;
+    color: #f2f2f2;
     cursor: pointer;
 }
 
 .panel-primary>.panel-heading:hover {
     background-color:  #0E2A36;
-               color:  white;
+    color:  #D6E9F0;
 }
 
 .img {
@@ -192,7 +229,9 @@ tr.spaceOver>td {
     background-color: #f2f2f2;
     border: 1px solid #257D5E;
 }
-
+.form-control:focus {
+    border-color: red;
+}
 #subject {
     display: block;
         width: 100%;
