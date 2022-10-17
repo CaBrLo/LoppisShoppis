@@ -29,12 +29,13 @@
                 Varan tillagd i varukorgen!
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Header with logo -->
 <div class="jumbotron">
@@ -51,15 +52,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"></a>
+            <img src="/images/logga-liten.svg" id="navbarlogo" onclick="location.href='/'">
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Nyinkommet</a></li>
-                        <li><a href="#">Sommarkläder</a></li>
-                        <li><a href="#">Rabatterade varor</a></li>
+                        <li><a href="/Clothes/allClothes">Alla kläder</a></li>
+                        <li><a href="/Clothes/Women">Dam</a></li>
+                        <li><a href="/Clothes/Men">Herr</a></li>
+                        <li><a href="/Clothes/Children">Barn</a></li>
                     </ul>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hem & inredning<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -104,11 +106,12 @@
 <div class="container">
     <div class="row">
         <div class="productlisting" th:each="product : ${products}">
-            <div class="col-sm-4" th:if="${product.category =='Furniture'}">
+            <div class="col-sm-4" th:if="${product.category =='Dam'}">
                 <div class="panel panel-primary stretched-link" id="productpanel">
                     <div class="panel-heading" th:text="${product.category}" href="'/product/' + ${product.id}"></div>
                     <div class="panel-body">
-                        <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg">
+                        <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
+                             th:onclick="'location.href=\'/product/' + ${product.id} + '\''">
                     </div>
                     <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
                     <a class="btn btn-primary " th:href="'/product/' + ${product.id}" >Mer info</a>
@@ -121,10 +124,10 @@
         </div>
     </div>
 </div><br><br>
+
 <div id="test2"></div>
 <div id="test">
 </div>
-
 
 <footer class="container-fluid text-center">
     <p>Bli en återvinnare!</p>
