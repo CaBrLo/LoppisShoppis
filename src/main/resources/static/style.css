@@ -42,14 +42,13 @@ body {
     cursor: pointer;
 }
 
-.nav .dropdown:hover {              /* Ska vi ha detta?*/
+.nav .dropdown:hover {
     background-color: #257D5E;
     color: #f2f2f2;
 }
 
 .nav .dropdown-menu {
     background-color: #0E2A36;
-
 }
 
 .nav .dropdown-menu>li>a {
@@ -61,13 +60,13 @@ body {
     color: #f2f2f2;
 }
 
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus,
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:focus,
 .navbar-inverse .navbar-nav>.open>a:hover {
     background-color: #257D5E;
     color: #f2f2f2;
 }
-
-
 
 /* Body */
 
@@ -76,8 +75,26 @@ body {
 }
 /* Footer */
 footer {
-    background-color: #D6E9F0;
-    padding: 25px;
+    background-color: #0E2A36;
+    color: #D6E9F0;
+    padding: 40px;
+}
+
+.footeritems {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+#footerlogo {
+    width: 70px;
+    cursor: pointer;
+}
+
+.footerlinks>ul>li>a,
+.footer-right>a {
+    color: #D6E9F0;
+    align-text: center;
 }
 
 #footerbtn {
@@ -352,8 +369,10 @@ tr.spaceOver>td {
     border: 1px solid #257D5E;
 }
 .form-control:focus {
-    border-color: red;
+    border-color: #3190B5;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
 }
+
 #subject {
     display: block;
         width: 100%;
