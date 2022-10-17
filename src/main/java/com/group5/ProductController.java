@@ -97,21 +97,21 @@ public class ProductController
     }
 
     @GetMapping("/Clothes/Women")
-    public String categoryNewItems(Model model)
+    public String categoryWomen(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
         return "/Clothes/Women";
     }
     @GetMapping("/Clothes/Men")
-    public String categorySummerClothes(Model model)
+    public String categoryMen(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
         return "/Clothes/Men";
     }
     @GetMapping("/Clothes/Children")
-    public String categoryDiscountItems(Model model)
+    public String categoryChildren(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
@@ -140,7 +140,7 @@ public class ProductController
         return "/Home/homeDecor";
     }
     @GetMapping("/Home/kitchenSupplies")
-    public String categoryKitchenSupllies(Model model)
+    public String categoryKitchenSupplies(Model model)
 
     {        List<Product> products = repository.getProducts();
         model.addAttribute("products", products);
@@ -215,27 +215,7 @@ public class ProductController
         model.addAttribute("products", products);
         return "/AboutUs/faq";
     }
-    @GetMapping("/Vintage/1920")
-    public String category1920(Model model)
 
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/Vintage/1920";
-    }
-    @GetMapping("/Vintage/1950")
-    public String category1950(Model model)
-
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/Vintage/1950";
-    }
-    @GetMapping("/Vintage/1970")
-    public String category1970(Model model)
-
-    {        List<Product> products = repository.getProducts();
-        model.addAttribute("products", products);
-        return "/Vintage/1970";
-    }
 
 
 }
