@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Sport & Fritid</title>
   <link rel="icon" type="image/x-icon" href="/images/logga-liten-ljus.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,6 +42,7 @@
     <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
   </div>
 </div>
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-inverse">
@@ -108,9 +109,9 @@
 <div class="container">
   <div class="row">
     <div class="productlisting" th:each="product : ${products}">
-      <div class="col-sm-4" th:if="${product.category =='Discount'}">
+      <div class="col-sm-4" th:if="${product.category =='Sport & Fritid'}">
         <div class="panel panel-primary stretched-link" id="productpanel">
-          <div class="panel-heading" th:text="${product.category}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
+          <div class="panel-heading" th:text="${product.name}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
           <div class="panel-body">
             <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
                  th:onclick="'location.href=\'/product/' + ${product.id} + '\''">
@@ -126,7 +127,6 @@
     </div>
   </div>
 </div><br><br>
-
 <div id="test2"></div>
 <div id="test">
 </div>
