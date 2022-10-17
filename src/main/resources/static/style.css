@@ -63,11 +63,16 @@ body {
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>.open>a,
 .navbar-inverse .navbar-nav>.open>a:focus,
-.navbar-inverse .navbar-nav>.open>a:hover {
+.navbar-inverse .navbar-nav>.open>a:hover,
+#navbar-cart-duo:hover {
     background-color: #257D5E;
     color: #f2f2f2;
 }
-
+#navbar-cart-duo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* Body */
 
 .page-header {
