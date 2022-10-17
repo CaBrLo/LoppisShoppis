@@ -11,6 +11,9 @@ class ProjectApplicationTests {
 	@Autowired
 	private ProductRepository productRepository;
 
+	@Autowired
+	private SiteuserRepository userRepository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -19,6 +22,12 @@ class ProjectApplicationTests {
 	public void testGetBookWithId() {
 		Product product = productRepository.getProduct(1);
 		Assertions.assertEquals("Tale of Sushi", product.getName());
+	}
+
+	@Test
+	public void testGetUserId() {
+		Siteuser user = userRepository.findUser(1);
+		Assertions.assertEquals("Sushi", user.getUsername());
 	}
 
 }

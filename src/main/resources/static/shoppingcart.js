@@ -152,6 +152,8 @@ function getStorage()
     {
         cartD = JSON.parse(localStorage.getItem("data"))
     }
+    updateFullSummation()
+    updateFullTableSummation()
 
     return cartD
 }
