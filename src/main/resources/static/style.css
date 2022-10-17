@@ -403,11 +403,17 @@ tr.spaceOver>td {
 }
 
 /***** Styling for contact us page *****/
+.contact-us-text>h3,
+.contact-us-text>h4,
+.contact-us-text>p {
+    text-align: center;
+}
 
 #contactform {
     background-color: #f2f2f2;
     border: 1px solid #257D5E;
 }
+
 .form-control:focus {
     border-color: #3190B5;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;

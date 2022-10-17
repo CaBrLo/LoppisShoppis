@@ -43,6 +43,8 @@
   </div>
 </div>
 
+<span class="logintxt">Inloggad som:<span th:text="${session?.siteuser?.username} ?: ' (Inte inloggad)'"></span></span>
+
 <!-- Navbar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -56,28 +58,28 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder & Skor <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder & Skor<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Clothes/allClothes">Allt inom Kläder & Skor</a></li>
-            <li><a href="/Clothes/Women">Dam</a></li>
-            <li><a href="/Clothes/Men">Herr</a></li>
-            <li><a href="/Clothes/Children">Barn</a></li>
+            <li><a href="/Clothes/Women">Damkläder & Skor</a></li>
+            <li><a href="/Clothes/Men">Herrkläder & Skor</a></li>
+            <li><a href="/Clothes/Children">Barnkläder & Skor</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hemmet<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Home/allHome">Allt för Hemmet</a></li>
             <li><a href="/Home/homeDecor">Inredning</a></li>
             <li><a href="/Home/electronics">Hemelektronik</a></li>
-            <li><a href="Home/kitchenSupplies">Husgeråd</a></li>
+            <li><a href="/Home/kitchenSupplies">Husgeråd</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Books/allBooks">Alla Böcker</a></li>
             <li><a href="/Books/childrensBooks">Barnböcker</a></li>
             <li><a href="/Books/non-fiction">Facklitteratur</a></li>
             <li><a href="/Books/fiction">Skönlitteratur</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Hobby/allHobbies">Allt inom Hobby & Fritid</a></li>
             <li><a href="/Hobby/hobbiesAndGames">Hobby & Spel</a></li>
@@ -85,7 +87,6 @@
             <li><a href="/Hobby/sport">Sport & Fritid </a></li>
             <li><a href="/Hobby/toys">Leksaker</a></li>
           </ul>
-
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/AboutUs/AboutUs">Vår vision</a></li>
@@ -93,15 +94,62 @@
             <li><a href="/AboutUs/faq">Vanliga frågor</a></li>
           </ul>
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
         <li><a><span id="cartsum" class="productsummation productcounter">0</span></a></li>
         <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="page-header"><h1>Vanliga frågor</h1></div>
+
+<div class="faq">
+  <h2>Allmänna frågor</h2>
+  <h3>Hur kommer jag i kontakt med er?</h3>
+  <p>
+    Lättaste sättet att kontakta oss är via vårt <a href="/AboutUs/contact">kontaktformulär</a>.
+    Du är alltid varmt välkommen att skriva till oss.
+    Vi återkommer till dig inom 2 vardagar, via den e-postadress du angav i formuläret.
+  </p>
+  <h2>Leverans</h2>
+  <h3>Hur lång tid tar det att få hem min beställning?</h3>
+  <p>
+    Vi gör allt för att du ska få hem din vara så snabbt som möjligt!
+    Gör du din beställning innan kl 13.00 på en vardag skickas den samma dag, annars efterföljande vardag.
+    Frakten tar vanligtvis 2-3 vardagar.
+    Du kan alltid följa din vara via länken du får i ditt bekräftelse-mail vid beställningen.
+  </p>
+  <h2>Skicka in varor</h2>
+  <h3>Hur gör man för att skicka in varor till er?</h3>
+  <p>
+    Vad roligt att du vill bidra till en mer hållbar planet! Kontakta oss via vårt <a href="/AboutUs/contact">kontaktformulär</a>.
+    Där kan du välja ärendet "Skicka in varor".
+  </p>
+  <h3>I vilket skick ska varan jag skickar in vara i?</h3>
+  <p>
+    Du kan skicka in allt du vill bli av med! Vi reparerar det som inte är i tillräckligt bra skick för att sälja direkt.
+    Om det inte går att reparera återvinner vi varan. Oavsett får du en bonus som tack för ditt bidrag till en mer hållbar värld!
+  </p>
+  <h3>Vad händer om min vara inte blir såld?</h3>
+  <p>
+    I de fall varan inte blir såld och vi behöver sortera ut den ur vårt sortiment, kontaktar vi säljaren.
+    Du som säljare får då 48 timmar på dig att meddela oss om du vill ha tillbaka varan.
+    I annat fall doneras den till välgörenhet.
+  </p>
+  <h2>Retur</h2>
+  <h3>Hur lång tid tar det att få hem min beställning?</h3>
+  <p>
+
+  </p>
+  <h2>Reklamation</h2>
+  <h3>Hur lång tid tar det att få hem min beställning?</h3>
+  <p>
+    Vi gör allt för att du ska få hem din vara så snabbt som möjligt!
+  </p>
+
+</div>
 
 <div id="test2"></div>
 <div id="test">
