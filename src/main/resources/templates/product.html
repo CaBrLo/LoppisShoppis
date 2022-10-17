@@ -24,7 +24,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <!-- Använd klassen cartsummation för en summering och cartlist för en utförlig lista -->
+      <div class="modal-body cartsummation">
         <ul>
           <li> Detta behöver uppdateras med en lista av varor </li>
         </ul>
@@ -95,8 +96,8 @@
           </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><span id="cartsum">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+        <li><span id="cartsum" class="productsummation productcounter">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
         <li><a onclick="location.href='/';" id="back-btn"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
       </ul>
@@ -115,7 +116,7 @@
       <h2><th th:text="${product.name}"></th></h2>
       <h3><th th:text="${product.price} + ' kr'"></th></h3>
       <h4><th th:text="${product.description}"></th></h4>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
         Köp
       </button>
 

@@ -1,6 +1,7 @@
 updateProductSummation()
 updatePriceSummation()
 updateFullSummation()
+updateFullTableSummation()
 
 /*  Skriv ut hela kundkorgen med produkter och priser.*/
 function addProduct(pid,pname,pprice)
@@ -63,11 +64,16 @@ function updateProductSummation()
     }
 }
 
-/*  Uppdatera uförlig köpbekräftelse
+/*  Uppdatera utförlig köpbekräftelse
     För att använda, lägg till klassen listofproducts */
 function updateFullSummation()
 {
     let alist = document.querySelector(".listofproducts")
+
+    if(alist === null)
+    {
+        return;
+    }
 
     let htmltxt = ""
     let cartData = new Array()
@@ -80,21 +86,20 @@ function updateFullSummation()
     alist.innerHTML = htmltxt
 }
 
-/*  Uppdatera uförlig köpbekräftelse (med ta bort funktion, anpassad för cart.html)
+/*  Uppdatera utförlig köpbekräftelse (med ta bort funktion, anpassad för cart.html)
     För att använda, lägg till klassen listofproducts */
-function updateFullSummation()
+function updateFullTableSummation()
 {
-    let alist = document.querySelector(".listofproducts")
+    let alist = document.querySelector(".fulllistofproducts")
 
-    let htmltxt = ""
+    alist.innerHTML = ""
     let cartData = new Array()
     cartData = getStorage()
 
     for(let c of cartData)
     {
-        htmltxt += `<p><a href="/product/${c.productId}">${c.productName}</a> <span class="price">${c.productPrice} kr</span></p>`
+        alist.innerHTML += `<p><img src="/images/trash0.png" height=20px alt="..."><a href="/product/${c.productId}">${c.productName}</a> <span class="price">${c.productPrice} kr</span></p>`
     }
-    alist.innerHTML = htmltxt
 }
 
 // Hjälpfunktion för att summera antalet varor i korgen
