@@ -31,7 +31,7 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
         <button type="button" class="btn btn-primary" onclick="location.href='/cart'">Gå till varukorgen</button>
       </div>
     </div>
@@ -54,52 +54,56 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/images/logga-liten.svg" id="navbarlogo" onclick="location.href='/';">
+      <img src="/images/logga-liten-ljus.svg" id="navbarlogo" onclick="location.href='/'">
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Nyinkommet</a></li>
-            <li><a href="#">Sommarkläder</a></li>
-            <li><a href="#">Rabatterade varor</a></li>
+            <li><a href="/Clothes/allClothes">Alla kläder</a></li>
+            <li><a href="/Clothes/Women">Dam</a></li>
+            <li><a href="/Clothes/Men">Herr</a></li>
+            <li><a href="/Clothes/Children">Barn</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hem & inredning<span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hemmet<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Möbler</a></li>
-            <li><a href="#">Akvarium</a></li>
-            <li><a href="#">Tavlor</a></li>
+            <li><a href="/Home/allHome">Allt för hemmet</a></li>
+            <li><a href="/Home/homeDecor">Inredning</a></li>
+            <li><a href="/Home/electronics">Hemelektronik</a></li>
+            <li><a href="/Home/kitchenSupplies">Husgeråd</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Astrid Lindgrens Kollektion</a></li>
-            <li><a href="#">Antika Grekland</a></li>
-            <li><a href="#">Sci-Fi</a></li>
+            <li><a href="/Books/allBooks">Alla böcker</a></li>
+            <li><a href="/Books/childrensBooks">Barnböcker</a></li>
+            <li><a href="/Books/non-fiction">Facklitteratur</a></li>
+            <li><a href="/Books/fiction">Skönlitteratur</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Frimärke</a></li>
-            <li><a href="#">Friluft</a></li>
-            <li><a href="#">Test</a></li>
+            <li><a href="/Hobby/allHobbies">Allt inom hobby & fritid</a></li>
+            <li><a href="/Hobby/hobbiesAndGames">Hobby & Spel</a></li>
+            <li><a href="/Hobby/moviesAndMusic">Film & Musik</a></li>
+            <li><a href="/Hobby/sport">Sport & Fritid </a></li>
+            <li><a href="/Hobby/toys">Leksaker</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vintage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">1920-1950</a></li>
-            <li><a href="#">1950-1970</a></li>
-            <li><a href="#">1970-2000</a></li>
+            <li><a href="/Vintage/1920">1920-1950</a></li>
+            <li><a href="/Vintage/1950">1950-1970</a></li>
+            <li><a href="/Vintage/1970">1970-2000</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Vision</a></li>
-            <li><a href="#">Historia</a></li>
-            <li><a href="#">Vet ej</a></li>
+            <li><a href="/AboutUs/AboutUs">Vår vision</a></li>
+            <li><a href="/AboutUs/contact">Kontakta oss</a></li>
+            <li><a href="/AboutUs/faq">Vanliga frågor</a></li>
           </ul>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
         <li><span id="cartsum" class="productsummation productcounter">0</span></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
-        <li><a onclick="location.href='/';" id="back-btn"><span class="glyphicon glyphicon-backward"></span> Tillbaka</a></li>
       </ul>
     </div>
   </div>

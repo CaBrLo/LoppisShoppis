@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Om oss</title>
+  <title>Kontakta oss</title>
   <link rel="icon" type="image/x-icon" href="/images/logga-liten-ljus.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +10,32 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
+
   </style>
 </head>
 <body>
+
+<!-- Modal - Message sent notification -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel"> Ditt meddelande har skickats. </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tack för ditt meddelande!
+        Vi återkommer inom 2 vardagar.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="location.href='/AboutUs/contact'"> Nytt meddelande</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='/'"> Fortsätt shoppa! </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Header with logo -->
 <div class="jumbotron">
@@ -84,22 +107,70 @@
   </div>
 </nav>
 
+<div class="container-contactform">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well well-sm" id="contactform">
+        <form class="form-horizontal" action="" method="post">
+          <fieldset>
+            <legend class="text-center">Kontakta oss</legend>
 
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Ditt namn</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Namn Namnsson" class="form-control">
+              </div>
+            </div>
+
+            <!-- Subject input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Ditt ärende</label>
+              <div class="col-md-9">
+                <select name="subject" id="subject">
+                  <option value="">Välj ämne...</option>
+                  <option value="Kundtjänst"> Kundtjänst </option>
+                  <option value="Skänka varor"> Skänka varor </option>
+                  <option value="Retur & reklamation"> Retur & reklamation </option>
+                  <option value="Annat"> Annat </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email">Din e-postadress</label>
+              <div class="col-md-9">
+                <input id="email" name="email" type="text" placeholder="namn@mail.com" class="form-control">
+              </div>
+            </div>
+
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Ditt meddelande</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="Skriv in ditt meddelande här..." rows="5"></textarea>
+              </div>
+            </div>
+
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Skicka</button>
+ <!--               <button type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Skicka</button>
+-->
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="test2"></div>
 <div id="test">
 </div>
 
-  </div>
-
-<div class="zoom-in-out-box">
-
-  <div class="container">
-    <img onclick="location.href='/';" src="/images/tree2.png" id="treeimg" height="300">
-  </div>
-</div><br><br>
-  <h2>Center an Image</h2>
-  <p>Vår butik värnar om miljö och produktsvinn</p>
-
-<!-- Footer -->
 <footer class="container-fluid text-center">
   <p>Bli en återvinnare!</p>
   <form class="form-inline">Anmäl dig till vårt nyhetsbrev:

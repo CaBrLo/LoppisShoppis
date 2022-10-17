@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Om oss</title>
+  <title>Antika Grekland</title>
   <link rel="icon" type="image/x-icon" href="/images/logga-liten-ljus.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,29 @@
   </style>
 </head>
 <body>
+
+<!-- Modal: Cart notification -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel"> En vara har lagts till i varukorgen: </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li> Detta behöver uppdateras med en lista av varor </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='/cart'">Gå till varukorgen</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Header with logo -->
 <div class="jumbotron">
@@ -84,20 +107,31 @@
   </div>
 </nav>
 
+<!-- Product image and information -->
+<div class="container">
+  <div class="row">
+    <div class="productlisting" th:each="product : ${products}">
+      <div class="col-sm-4" th:if="${product.category =='Facklitteratur'}">
+        <div class="panel panel-primary stretched-link" id="productpanel">
+          <div class="panel-heading" th:text="${product.name}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
+          <div class="panel-body">
+            <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
+                 th:onclick="'location.href=\'/product/' + ${product.id} + '\''">
+          </div>
+          <div class="panel-footer" th:text="'Pris: ' + ${product.price} + ' kr'"></div>
+          <a class="btn btn-primary " th:href="'/product/' + ${product.id}" >Mer info</a>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:onclick="addProduct([[${product.id}]],[[${product.name}]],[[${product.price}]])">
+            Köp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
 
 <div id="test">
 </div>
-
-  </div>
-
-<div class="zoom-in-out-box">
-
-  <div class="container">
-    <img onclick="location.href='/';" src="/images/tree2.png" id="treeimg" height="300">
-  </div>
-</div><br><br>
-  <h2>Center an Image</h2>
-  <p>Vår butik värnar om miljö och produktsvinn</p>
 
 <!-- Footer -->
 <footer class="container-fluid text-center">
