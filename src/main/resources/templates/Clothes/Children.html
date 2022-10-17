@@ -15,6 +15,30 @@
 </head>
 <body>
 
+<!-- Modal: Cart notification -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel"> En vara har lagts till i varukorgen: </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- Använd klassen cartsummation för en summering och cartlist för en utförlig lista -->
+      <div class="modal-body cartsummation">
+        <ul>
+          <li> Detta behöver uppdateras med en lista av varor </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='/cart'">Gå till varukorgen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -29,8 +53,8 @@
         Varan tillagd i varukorgen!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fortsätt shoppa</button>
+        <button type="button" class="btn btn-primary"></button>
       </div>
     </div>
   </div>
@@ -56,40 +80,36 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder & Skor <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/Clothes/allClothes">Alla kläder</a></li>
+            <li><a href="/Clothes/allClothes">Allt inom Kläder & Skor</a></li>
             <li><a href="/Clothes/Women">Dam</a></li>
             <li><a href="/Clothes/Men">Herr</a></li>
             <li><a href="/Clothes/Children">Barn</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hem & inredning<span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hemmet<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/Home&style/Furniture">Möbler</a></li>
-            <li><a href="/Home&style/Aquarium">Akvarium</a></li>
-            <li><a href="/Home&style/Paintings">Tavlor</a></li>
+            <li><a href="/Home/allHome">Allt för Hemmet</a></li>
+            <li><a href="/Home/homeDecor">Inredning</a></li>
+            <li><a href="/Home/electronics">Hemelektronik</a></li>
+            <li><a href="Home/kitchenSupplies">Husgeråd</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/Books/allBooks">Alla böcker</a></li>
+            <li><a href="/Books/allBooks">Alla Böcker</a></li>
             <li><a href="/Books/childrensBooks">Barnböcker</a></li>
             <li><a href="/Books/non-fiction">Facklitteratur</a></li>
             <li><a href="/Books/fiction">Skönlitteratur</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/Hobby/allHobbies">Allt inom hobby & fritid</a></li>
+            <li><a href="/Hobby/allHobbies">Allt inom Hobby & Fritid</a></li>
             <li><a href="/Hobby/hobbiesAndGames">Hobby & Spel</a></li>
             <li><a href="/Hobby/moviesAndMusic">Film & Musik</a></li>
             <li><a href="/Hobby/sport">Sport & Fritid </a></li>
             <li><a href="/Hobby/toys">Leksaker</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Vintage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/Vintage/1920">1920-1950</a></li>
-            <li><a href="/Vintage/1950">1950-1970</a></li>
-            <li><a href="/Vintage/1970">1970-2000</a></li>
-          </ul>
+
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/AboutUs/AboutUs">Vår vision</a></li>
@@ -114,7 +134,7 @@
     <div class="productlisting" th:each="product : ${products}">
       <div class="col-sm-4" th:if="${product.category =='Barn'}">
         <div class="panel panel-primary stretched-link" id="productpanel">
-          <div class="panel-heading" th:text="${product.category}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
+          <div class="panel-heading" th:text="${product.name}" th:onclick="'location.href=\'/product/' + ${product.id} + '\''"></div>
           <div class="panel-body">
             <img th:src="${product.image}" class="img-responsive" alt="Image" id="productimg"
                  th:onclick="'location.href=\'/product/' + ${product.id} + '\''">
