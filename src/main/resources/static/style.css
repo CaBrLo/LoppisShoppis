@@ -110,6 +110,8 @@ footer {
 }
 #footerbtn:hover {
     background-color: #257D5E;
+    color: #f2f2f2;
+    border-color: #257D5E;
 }
 .checkout-row .col-50 {
     /* Text: Billing info */
@@ -440,8 +442,16 @@ tr.spaceOver>td {
 
 /***** Styling for FAQ page *****/
 
-.faq {
-    text-align: left;
-    padding: 100px;
+#faq {
+    width:50%;
+    text-align: center;
 }
-
+#faq>h3 {
+    font-weight:bold;
+    background-color: #f2f2f2;
+    color: #0E2A36;
+    border: 1px solid #257D5E;
+}
+#faq>h4 {
+    font-weight: bold;
+}
