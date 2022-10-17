@@ -60,7 +60,29 @@ public class ProductRepository
 
         return foundProduct;
     }
-    
+
+    public Product getProductByName(String name)
+    {
+        Product foundProduct = null;
+        //test
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT id, name, price, description, category, image FROM product WHERE name = " + name)) {
+
+            if (rs.next()){
+                foundProduct = (new Product(rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("price"),
+                        rs.getString("description"),
+                        rs.getString("category"),
+                        rs.getString("image")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return foundProduct;
+    }
 
     // todo: metod för att hämta en product
 

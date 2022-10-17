@@ -7,6 +7,5 @@ INSERT INTO PRODUCT (NAME, PRICE, DESCRIPTION, CATEGORY, IMAGE) VALUES
 ('Pumpa - värmeljuslykta', 149, 'Värmeljuslykta i form av en Halloween-pumpa.', 'Halloween', '/images/pumpalykta.png'),
 ('Skelett - dekoration', 299, 'Dekorativt och verklighetstroget skelett vid namn Benjamin, ca 160 cm.', 'Halloween', '/images/skelett.png');
 
-
 INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES
 ('Sushi','123');

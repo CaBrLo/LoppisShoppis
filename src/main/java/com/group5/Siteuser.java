@@ -6,6 +6,8 @@ public class Siteuser
     private String username;
     private String password;
 
+    public Siteuser() {}
+
     public Siteuser(Integer id, String username, String password) {
         this.id = id;
         this.username = username;
