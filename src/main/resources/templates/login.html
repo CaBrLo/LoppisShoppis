@@ -110,14 +110,16 @@
     </div>
 </nav>
 
-<form action="/login" th:method="POST">
-    <label for="user">Användarnamn</label>
-    <input type="text" id="user" name="username">
-    <label for="password">Lösenord</label>
-    <input type="password" id="password" name="password">
-    <input type="submit" class="btn btn-primary" value="Logga in">
-    <a class="btn btn-primary " th:href="'/newuser'" >Skapa ny användare</a>
-</form>
+<div class="d-flex justify-content-center">
+    <form action="/login" th:method="POST">
+        <label for="user">Användarnamn</label>
+        <input type="text" id="user" name="username">
+        <label for="password">Lösenord</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" class="btn btn-primary" value="Logga in">
+        <a class="btn btn-primary " th:href="'/newuser'" >Skapa ny användare</a>
+    </form>
+</div>
 
 <!-- version 2
 <div>

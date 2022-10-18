@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.*;
 
 import static java.lang.String.format;
@@ -56,12 +60,30 @@ public class SiteuserRepository
 
     public void createUser(Siteuser user)
     {
-        String sqlQueryString = format("INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES ('%s','%s');", user.getUsername(), user.getPassword());
+        byte[] hashedPw = null;
+
+
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(salt);
+            hashedPw = md.digest(user.getPassword().getBytes(StandardCharsets.UTF_8));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        String securePw = new String(hashedPw, StandardCharsets.UTF_8);
+        //System.out.println(securePw);
+        System.out.println("AAAAAAAAH: " + new String(securePw));
+
+        String sqlQueryString = format("INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES ('%s','%s');", user.getUsername(), securePw);
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO SITEUSER(USERNAME, PASSWORD) VALUES (?,?) ")) {
             ps.setString(1, user.getUsername());
-            ps.setString(2, user.getPassword());
+            ps.setString(2, hashedPw.toString());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

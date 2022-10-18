@@ -9,9 +9,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.validation.BindingResult;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+import javax.validation.Valid;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,12 +34,9 @@ public class SiteuserController
         return "login";
     }
 
-
     @PostMapping("/login")
     String postlogin(@RequestParam String username, @RequestParam String password, HttpSession session)
     {
-        //System.out.printf("\n\n\n\nAngivet username: %s med password: %s",username,password);
-
         Siteuser user = repository.findUser(username);
 
         if(user == null) {
@@ -41,7 +44,26 @@ public class SiteuserController
             return "login";
         }
 
-        if(password.equals(user.getPassword())) {
+        byte[] hashedPw = null;
+
+
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(salt);
+            hashedPw = md.digest(user.getPassword().getBytes(StandardCharsets.UTF_8));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        String securePw = hashedPw.toString();
+        System.out.println("SecurePw: " + securePw);
+        System.out.println("AAAAAAH2: " + new String(securePw));
+        System.out.println("user.getPassword: " + user.getPassword());
+
+        if(securePw.equals(user.getPassword())) {
             System.out.printf("\n\n\n\nINLOGGAD SOM %s med password %s", user.getUsername(), user.getPassword());
             session.setAttribute("siteuser",user);
             return "frontpage";
@@ -69,8 +91,13 @@ public class SiteuserController
     }
 
     @PostMapping("/newuser")
-    public String registerUserAccount(@ModelAttribute Siteuser user, BindingResult bindingResult, Model model)
+    public String registerUserAccount(@Valid Siteuser user, BindingResult bindingResult, Model model)
     {
+        if(bindingResult.hasErrors())
+        {
+            return "newuser";
+        }
+
         if(repository.findUser(user.getUsername()) != null)
         {
             System.out.println("User already exists");

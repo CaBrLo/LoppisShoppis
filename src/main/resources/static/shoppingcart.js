@@ -1,7 +1,32 @@
+/*
 updateProductSummation()
 updatePriceSummation()
 updateFullSummation()
-updateFullTableSummation()
+updateFullTableSummation()*/
+
+updateValue()
+function updateValue()
+{
+    if(document.getElementsByClassName("productsummation") != null)
+    {
+        updateProductSummation()
+    }
+
+    if(document.getElementsByClassName("pricesummation") != null)
+    {
+        updatePriceSummation();
+    }
+
+    if(document.querySelector(".listofproducts") != null)
+    {
+        updateFullSummation();
+    }
+
+    if(document.querySelector(".fulllistofproducts") != null)
+    {
+        updateFullTableSummation();
+    }
+}
 
 /*  Skriv ut hela kundkorgen med produkter och priser.*/
 function addProduct(pid,pname,pprice)
@@ -12,11 +37,14 @@ function addProduct(pid,pname,pprice)
 
     cartData.push(newData)
     localStorage.setItem("data",JSON.stringify(cartData))
-    
+
+    updateValue()
+    /*
     updateBuyModal()
     updateProductSummation()
     updatePriceSummation()
-    updateFullSummation()
+    updateFullSummation()*/
+
 }
 
 /*  Uppdatera summerad köpbekräftelse
@@ -91,6 +119,11 @@ function updateFullSummation()
 function updateFullTableSummation()
 {
     let alist = document.querySelector(".fulllistofproducts")
+
+    if(alist === null)
+    {
+        return;
+    }
 
     alist.innerHTML = ""
     let cartData = new Array()

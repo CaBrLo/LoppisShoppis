@@ -1,9 +1,14 @@
 package com.group5;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class Siteuser
 {
     private Integer id;
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String password;
 
     public Siteuser() {}
