@@ -1,10 +1,10 @@
-/*
+
 updateProductSummation()
 updatePriceSummation()
 updateFullSummation()
-updateFullTableSummation()*/
+updateFullTableSummation()
 
-updateValue()
+//updateValue()
 function updateValue()
 {
     if(document.getElementsByClassName("productsummation") != null)
@@ -38,12 +38,12 @@ function addProduct(pid,pname,pprice)
     cartData.push(newData)
     localStorage.setItem("data",JSON.stringify(cartData))
 
-    updateValue()
-    /*
+    //updateValue()
+
     updateBuyModal()
     updateProductSummation()
     updatePriceSummation()
-    updateFullSummation()*/
+    updateFullSummation()
 
 }
 
