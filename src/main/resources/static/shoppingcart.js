@@ -44,7 +44,6 @@ function addProduct(pid,pname,pprice)
     updateProductSummation()
     updatePriceSummation()
     updateFullSummation()
-
 }
 
 /*  Uppdatera summerad köpbekräftelse
@@ -185,8 +184,6 @@ function getStorage()
     {
         cartD = JSON.parse(localStorage.getItem("data"))
     }
-    updateFullSummation()
-    updateFullTableSummation()
 
     return cartD
 }

@@ -62,23 +62,26 @@ public class SiteuserRepository
     {
         byte[] hashedPw = null;
 
-
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
 
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
-            md.update(salt);
+            //md.update(salt);
             hashedPw = md.digest(user.getPassword().getBytes(StandardCharsets.UTF_8));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
-        String securePw = new String(hashedPw, StandardCharsets.UTF_8);
-        //System.out.println(securePw);
-        System.out.println("AAAAAAAAH: " + new String(securePw));
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < hashedPw.length; i++) {
+            sb.append(Integer.toString((hashedPw[i] & 0xff) + 0x100, 16)
+                    .substring(1));
+        }
+        String generatedPassword = sb.toString();
 
-        String sqlQueryString = format("INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES ('%s','%s');", user.getUsername(), securePw);
+
+        String sqlQueryString = format("INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES ('%s','%s');", user.getUsername(), generatedPassword);
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO SITEUSER(USERNAME, PASSWORD) VALUES (?,?) ")) {

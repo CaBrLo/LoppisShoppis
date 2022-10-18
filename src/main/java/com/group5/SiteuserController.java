@@ -46,22 +46,16 @@ public class SiteuserController
 
         byte[] hashedPw = null;
 
-
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-
+        String securePw = "";
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
-            md.update(salt);
-            hashedPw = md.digest(user.getPassword().getBytes(StandardCharsets.UTF_8));
+            md.reset();
+            md.update(password.getBytes());
+            securePw = md.digest().toString();
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
-        String securePw = hashedPw.toString();
         System.out.println("SecurePw: " + securePw);
-        System.out.println("AAAAAAH2: " + new String(securePw));
-        System.out.println("user.getPassword: " + user.getPassword());
 
         if(securePw.equals(user.getPassword())) {
             System.out.printf("\n\n\n\nINLOGGAD SOM %s med password %s", user.getUsername(), user.getPassword());
