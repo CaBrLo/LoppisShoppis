@@ -44,18 +44,7 @@ public class SiteuserController
             return "login";
         }
 
-        byte[] hashedPw = null;
-
-        String securePw = "";
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-512");
-            md.reset();
-            md.update(password.getBytes());
-            securePw = md.digest().toString();
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("SecurePw: " + securePw);
+        String securePw = repository.getHash(password);
 
         if(securePw.equals(user.getPassword())) {
             System.out.printf("\n\n\n\nINLOGGAD SOM %s med password %s", user.getUsername(), user.getPassword());
@@ -107,8 +96,11 @@ public class SiteuserController
     public String getUserPage(HttpSession session)
     {
         if(session.getAttribute("siteuser") == null)
+        {
             return "login";
-
-        return "userpage";
+        } else
+        {
+            return "userpage";
+        }
     }
 }

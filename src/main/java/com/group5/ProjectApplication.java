@@ -4,8 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.xml.bind.DatatypeConverter;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -15,7 +17,9 @@ public class ProjectApplication {
 	public static void main(String[] args)
 	{
 		//testCart();
-		testPwHash();
+		testPwHash2("123");
+		testPwHash2("123");
+		testPwHash2("124");
 
 		SpringApplication.run(ProjectApplication.class, args);
 	}
@@ -43,5 +47,30 @@ public class ProjectApplication {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static void testPwHash2(String password)
+	{
+		byte[] hashedPw = null;
+
+		SecureRandom random = new SecureRandom();
+		byte[] salt = new byte[16];
+		random.nextBytes(salt);
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-512");
+			//md.update(salt);
+			hashedPw = md.digest(password.getBytes(StandardCharsets.UTF_8));
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < hashedPw.length; i++) {
+			sb.append(Integer.toString((hashedPw[i] & 0xff) + 0x100, 16)
+					.substring(1));
+		}
+		String generatedPassword = sb.toString();
+
+		System.out.println(generatedPassword);
 	}
 }

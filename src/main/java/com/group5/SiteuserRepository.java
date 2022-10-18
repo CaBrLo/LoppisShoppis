@@ -60,6 +60,22 @@ public class SiteuserRepository
 
     public void createUser(Siteuser user)
     {
+        String generatedPassword = getHash(user.getPassword());
+
+        String sqlQueryString = format("INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES ('%s','%s');", user.getUsername(), generatedPassword);
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO SITEUSER(USERNAME, PASSWORD) VALUES (?,?) ")) {
+            ps.setString(1, user.getUsername());
+            ps.setString(2, generatedPassword);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getHash(String password)
+    {
         byte[] hashedPw = null;
 
         SecureRandom random = new SecureRandom();
@@ -69,7 +85,7 @@ public class SiteuserRepository
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
             //md.update(salt);
-            hashedPw = md.digest(user.getPassword().getBytes(StandardCharsets.UTF_8));
+            hashedPw = md.digest(password.getBytes(StandardCharsets.UTF_8));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
@@ -80,16 +96,6 @@ public class SiteuserRepository
         }
         String generatedPassword = sb.toString();
 
-
-        String sqlQueryString = format("INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES ('%s','%s');", user.getUsername(), generatedPassword);
-
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO SITEUSER(USERNAME, PASSWORD) VALUES (?,?) ")) {
-            ps.setString(1, user.getUsername());
-            ps.setString(2, hashedPw.toString());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return generatedPassword;
     }
 }
