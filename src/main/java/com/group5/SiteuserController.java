@@ -35,9 +35,14 @@ public class SiteuserController
     }
 
     @PostMapping("/login")
-    String postlogin(@RequestParam String username, @RequestParam String password, HttpSession session)
+    String postlogin(@RequestParam String username, @RequestParam String password, HttpSession session, BindingResult bindingResult)
     {
         Siteuser user = repository.findUser(username);
+
+        if(bindingResult.hasErrors())
+        {
+            return "login";
+        }
 
         if(user == null) {
             System.out.printf("\n\n\n\nAnvändaren %s finns inte", username);
