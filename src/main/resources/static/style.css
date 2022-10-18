@@ -63,7 +63,8 @@ body {
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>.open>a,
 .navbar-inverse .navbar-nav>.open>a:focus,
-.navbar-inverse .navbar-nav>.open>a:hover {
+.navbar-inverse .navbar-nav>.open>a:hover,
+#navbar-cart-duo:hover {
     background-color: #257D5E;
     color: #f2f2f2;
 }
@@ -78,6 +79,13 @@ body {
     position: absolute;
     right: 0px;
     top: -32px;
+}
+
+
+#navbar-cart-duo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Body */
@@ -115,8 +123,11 @@ footer {
     border-color: #FFDD5C;
     color: #0E2A36
 }
-
-
+#footerbtn:hover {
+    background-color: #257D5E;
+    color: #f2f2f2;
+    border-color: #257D5E;
+}
 .checkout-row .col-50 {
     /* Text: Billing info */
     -ms-flex: 50%; /* IE10 */
@@ -190,11 +201,6 @@ footer {
     transform: scale(1.2);
 }
 
-.checkout-row .col-25,
-.checkout-row .col-50,
-.checkout-row .col-75 {
-    padding: 0 16px;
-}
 #productimg {
     /* Centers the product image and gives all product images the same height */
     padding: 10px;
@@ -202,8 +208,6 @@ footer {
     height: 250px;
     cursor: pointer;
 }
-
-
 
 /***** Styling for cart page *****/
 
@@ -215,18 +219,16 @@ tr.spaceOver>td {
     padding-top: 1em;
 }
 
-
 #treeimg{
 transform: translate(0%, 10%);
 border-right-style: solid;
 justify-items: center;
 display: inline-grid;
 
-   }
 }
 
 .textCenter{
-text-align:center;
+    text-align:center;
 }
 
 /***** Styling for checkout page *****/
@@ -275,6 +277,14 @@ text-align:center;
     border-radius: 3px;
 }
 
+:focus-visible {
+    /* Border around input fields */
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-color: #3190B5;
+    outline-style: auto;
+    outline-width: 1px;
+}
+
 .container-form label {
     /* Billing info headers */
     margin-bottom: 10px;
@@ -284,6 +294,39 @@ text-align:center;
 .container-form span.price {
     float: right;
     color: grey;
+}
+
+.checkout-row {
+    /* rows on the checkout page */
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.checkout-row .col-25 {
+    /* Text: purchases & sum in container with products */
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+}
+
+.checkout-row .col-50 {
+    /* Text: Billing info */
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.checkout-row .col-75 {
+    /* Text: Billing info */
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+.checkout-row .col-25,
+.checkout-row .col-50,
+.checkout-row .col-75 {
+    padding: 0 16px;
 }
 
 /***** Styling for product page *****/
@@ -330,6 +373,13 @@ tr.spaceOver>td {
   animation: zoom-in-zoom-out 50s ease infinite;
 
 }
+#tree-container {
+    position: relative;
+    width: 480px;
+    /* Allows full view of tree. Shorter makes the tree trunk go out of frame as it grows*/
+    height: 700px;
+    overflow: hidden;
+}
 
 @keyframes zoom-in-zoom-out {
 
@@ -375,11 +425,17 @@ tr.spaceOver>td {
 }
 
 /***** Styling for contact us page *****/
+.contact-us-text>h3,
+.contact-us-text>h4,
+.contact-us-text>p {
+    text-align: center;
+}
 
 #contactform {
     background-color: #f2f2f2;
     border: 1px solid #257D5E;
 }
+
 .form-control:focus {
     border-color: #3190B5;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
@@ -399,92 +455,18 @@ tr.spaceOver>td {
         border-radius: 4px;
 }
 
-/***** Styling for checkout page *****/
+/***** Styling for FAQ page *****/
 
-.container-form {
+#faq {
+    width:50%;
+    text-align: center;
+}
+#faq>h3 {
+    font-weight:bold;
     background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
+    color: #0E2A36;
     border: 1px solid #257D5E;
-    border-radius: 3px;
-    margin-left: 30px;
-    margin-right: 30px;
 }
-
-.container-form h3 {
-    font-family: "Segoe UI",Arial,sans-serif;
-    font-weight: 400;
-}
-
-.container-form #checkout-prodamount,
-.container-form #checkout-totamount {
-    color: black;
-}
-
-.container-form .btn {
-    background-color: #257D5E;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-.container-form .btn:hover {
-    background-color:  #0E2A36;
-}
-
-.container-form input[type=text] {
-    /* Billing info - input */
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.container-form label {
-    /* Billing info headers */
-    margin-bottom: 10px;
-    display: block;
-}
-
-.container-form span.price {
-    float: right;
-    color: grey;
-}
-
-.checkout-row {
-    /* rows on the checkout page */
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
-}
-
-.checkout-row .col-25 {
-    /* Text: purchases & sum in container with products */
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-}
-
-.checkout-row .col-50 {
-    /* Text: Billing info */
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-}
-
-.checkout-row .col-75 {
-    /* Text: Billing info */
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-}
-
-.checkout-row .col-25,
-.checkout-row .col-50,
-.checkout-row .col-75 {
-    padding: 0 16px;
+#faq>h4 {
+    font-weight: bold;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Om oss</title>
+  <title>Vår vision</title>
   <link rel="icon" type="image/x-icon" href="/images/logga-liten-ljus.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +21,8 @@
   </div>
 </div>
 
+<span class="logintxt">Inloggad som:<span th:text="${session?.siteuser?.username} ?: ' (Inte inloggad)'"></span></span>
+
 <!-- Navbar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -34,28 +36,28 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder & Skor <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kläder & Skor<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Clothes/allClothes">Allt inom Kläder & Skor</a></li>
-            <li><a href="/Clothes/Women">Dam</a></li>
-            <li><a href="/Clothes/Men">Herr</a></li>
-            <li><a href="/Clothes/Children">Barn</a></li>
+            <li><a href="/Clothes/Women">Damkläder & Skor</a></li>
+            <li><a href="/Clothes/Men">Herrkläder & Skor</a></li>
+            <li><a href="/Clothes/Children">Barnkläder & Skor</a></li>
           </ul>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hemmet<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Home/allHome">Allt för Hemmet</a></li>
             <li><a href="/Home/homeDecor">Inredning</a></li>
             <li><a href="/Home/electronics">Hemelektronik</a></li>
-            <li><a href="Home/kitchenSupplies">Husgeråd</a></li>
+            <li><a href="/Home/kitchenSupplies">Husgeråd</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Böcker<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Books/allBooks">Alla Böcker</a></li>
             <li><a href="/Books/childrensBooks">Barnböcker</a></li>
             <li><a href="/Books/non-fiction">Facklitteratur</a></li>
             <li><a href="/Books/fiction">Skönlitteratur</a></li>
           </ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobby & Fritid<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/Hobby/allHobbies">Allt inom Hobby & Fritid</a></li>
             <li><a href="/Hobby/hobbiesAndGames">Hobby & Spel</a></li>
@@ -63,7 +65,6 @@
             <li><a href="/Hobby/sport">Sport & Fritid </a></li>
             <li><a href="/Hobby/toys">Leksaker</a></li>
           </ul>
-
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/AboutUs/AboutUs">Vår vision</a></li>
@@ -71,40 +72,60 @@
             <li><a href="/AboutUs/faq">Vanliga frågor</a></li>
           </ul>
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
-        <li><a><span id="cartsum" class="productsummation productcounter">0</span></a></li>
-        <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Mitt konto</a></li>
+        <li id="navbar-cart-duo">
+          <a><span id="cartsum" class="productsummation productcounter">0</span></a>
+          <a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
+<div class="page-header"><h1>Vår vision</h1></div>
+
 
 <div id="test">
 </div>
 
-  </div>
-<h2 id="textCenter" style="text-align: center">Vår vision med loppisshoppis.....</h2>
+<h2 id="textCenter" style="text-align: center;">Vår vision med loppisshoppis.....</h2>
 
-<p id="textCenter2"style="text-align: center" >Vår butik värnar om miljö och produktsvinn</p>
+<p id="textCenter2" style="text-align: center;" >Vår butik värnar om miljö och produktsvinn</p>
 
-
-<div class="zoom-in-out-box"style="text-align: center">
+<div class="container" id="tree-container">
+  <div class="zoom-in-out-box" id="imgtree" style="text-align: center;">
     <img onclick="location.href='/';" src="/images/tree2.png" id="treeimg" height="300" >
   </div>
-</div><br><br>
-<div id="test">
+</div>
+
+
+<div id="test2">
 </div>
 
 <!-- Footer -->
-<footer class="container-fluid text-center" style="position:absolute; bottom:50px;" >
-  <p>Bli en återvinnare!</p>
-  <form class="form-inline">Anmäl dig till vårt nyhetsbrev:
-    <input type="email" class="form-control" size="50" placeholder="Mejladress">
-    <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
-  </form>
+<footer>
+  <div class="footeritems">
+    <div class="footerlinks">
+      <h5>Om oss: </h5>
+      <ul>
+        <li><a href="/AboutUs/AboutUs">Vår vision</a></li>
+        <li><a href="/AboutUs/contact">Kontakta oss</a></li>
+        <li><a href="/AboutUs/faq">Vanliga frågor</a></li>
+      </ul>
+    </div>
+    <div class="container-fluid text-center">
+      <p>Bli en återvinnare! <br> Anmäl dig till vårt nyhetsbrev: </p>
+      <form class="form-inline"><input type="email" class="form-control" size="50" placeholder="E-postadress">
+        <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
+      </form>
+    </div>
+    <div class="footer-right">
+      <img src="/images/logga-liten-ljus.svg" id="footerlogo" onclick="location.href='/'">
+      <br>
+      <a href="/">© LoppisShoppis</a>
+    </div>
+  </div>
 </footer>
 
 
