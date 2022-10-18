@@ -38,6 +38,29 @@
     </div>
 </div>
 
+<!-- Modal: Newsletter Signup notification -->
+<div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-labelledby="newsletterModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="newsletterModalLabel"> Grattis! Du prenumererar nu på LoppisShoppis nyhetsbrev! </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="newsletterSignup">
+                <ul>
+                    Vårt nyhetsbrev skickas ut till dig i början av varje månad.<br>
+                    Håll utkik i inkorgen för den e-postadress du angav!
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fortsätt shoppa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Header with logo -->
 <div class="jumbotron">
     <div class="container text-center">
@@ -111,12 +134,13 @@
 <!--Carousel -->
 <div class="container">
     <h2>Tips inför Halloween!</h2>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -124,6 +148,13 @@
 
             <div class="item active">
                 <img src="/images/skelett.png" alt="Halloween-dekoration: skelett" onclick="location.href='/product/7'">
+                <div class="carousel-caption">
+                    <!-- Space for description on image-->
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="/images/spoke.jpg" alt="Halloween-dekoration: spöke" onclick="location.href='/product/8'">
                 <div class="carousel-caption">
                     <!-- Space for description on image-->
                 </div>
@@ -199,7 +230,7 @@
         <div class="container-fluid text-center">
             <p>Bli en återvinnare! <br> Anmäl dig till vårt nyhetsbrev: </p>
             <form class="form-inline"><input type="email" class="form-control" size="50" placeholder="E-postadress">
-                <button type="button" class="btn btn-danger" id="footerbtn" >Skicka</button>
+                <button type="button" class="btn btn-danger" id="footerbtn" data-toggle="modal" data-target="#newsletterModal">Skicka</button>
             </form>
         </div>
         <div class="footer-right">
