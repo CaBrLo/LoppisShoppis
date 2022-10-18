@@ -216,6 +216,9 @@ public class ProductController
         return "/AboutUs/faq";
     }
 
-
+    @GetMapping("/buyconfirmation")
+    public String buyconfirmation() {
+        return "buyconfirmation";
+    }
 
 }
