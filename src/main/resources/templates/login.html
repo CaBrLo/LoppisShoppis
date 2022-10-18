@@ -134,7 +134,6 @@
 <form action="/login" th:method="POST">
     <label for="user">Användarnamn</label>
     <input type="text" id="user" name="username">
-    <p class="error" th:if="${#fields.hasErrors('username')}">Incorrect value in text input!</p>
     <label for="password">Lösenord</label>
     <input type="password" id="password" name="password">
     <input type="submit" class="btn btn-primary" value="Logga in">
