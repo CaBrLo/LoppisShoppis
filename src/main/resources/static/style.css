@@ -70,6 +70,18 @@ body {
     color: #f2f2f2;
 }
 
+.error {
+    border-style: solid;
+    border-color: red;
+    border-radius: 5px;
+}
+
+.success {
+    border-style: solid;
+    border-color: green;
+    border-radius: 5px;
+}
+
 .loginstatus {
     border-style: solid;
     border-color: #3190B5;

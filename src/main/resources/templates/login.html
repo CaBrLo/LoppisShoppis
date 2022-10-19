@@ -133,9 +133,13 @@
 
 <form action="/login" th:method="POST">
     <label for="user">Användarnamn</label>
-    <input type="text" id="user" name="username">
+    <input type="text" id="user" name="username" class="usernameinput" onkeyup="updateUsername()">
+    <div class="nameresult"></div>
+
     <label for="password">Lösenord</label>
-    <input type="password" id="password" name="password">
+    <input type="password" id="password" name="password" class="passwordinput" onkeydown="updatePassword()">
+    <div class="passwordresult"></div>
+
     <input type="submit" class="btn btn-primary" value="Logga in">
     <a class="btn btn-primary " th:href="'/newuser'" >Skapa ny användare</a>
 </form>
@@ -197,6 +201,7 @@
 </footer>
 
 <script src="shoppingcart.js"></script>
+<script src="formfixer.js"></script>
 
 </body>
 </html>

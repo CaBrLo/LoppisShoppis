@@ -134,13 +134,15 @@
 
 <!-- New user -->
 <form action="/newuser" method="POST" th:object="${user}">
-    <table><div>
-        <th class="userInput"> Användarnamn: <input type="text" th:field="*{username}"/>
-        <p class="error" th:if="${#fields.hasErrors('username')}">Fyll i ett namn!</p></th>
-        <th class="userInput"> Lösenord:     <input type="password" th:field="*{password}"/>
-        <p class="error" th:if="${#fields.hasErrors('password')}">Fyll i ett lösenord!</p></th>
-        <th class="userInput"> <input type="submit"/></th>
-    </div></table>
+    <label for="user">Användarnamn</label>
+    <input type="text" id="user" name="username" class="usernameinput" onkeyup="updateUsername()">
+    <div class="nameresult"></div>
+
+    <label for="password">Lösenord</label>
+    <input type="password" id="password" name="password" class="passwordinput" onkeydown="updatePassword()">
+    <div class="passwordresult"></div><th class="userInput">
+
+    <input type="submit" class="btn btn-primary" value="Ska användare">
 </form>
 
 <!-- Footer -->
@@ -169,6 +171,7 @@
 </footer>
 
 <script src="shoppingcart.js"></script>
+<script src="formfixer.js"></script>
 
 </body>
 </html>
