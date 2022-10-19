@@ -64,7 +64,7 @@
 <!-- Header with logo -->
 <div class="jumbotron">
     <div class="container text-center">
-        <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
+        <img onclick="location.href='/';" src="/images/loppisshoppis3.png" class="img-responsive">
     </div>
 </div>
 
@@ -133,6 +133,7 @@
 <div class="page-header"><h1>Skapa ny användare</h1></div>
 
 <!-- New user -->
+<div class="container" id="newuser">
 <form action="/newuser" method="POST" th:object="${user}">
     <label for="user">Användarnamn</label>
     <input type="text" id="user" name="username" class="usernameinput" onkeyup="updateUsername()">
@@ -144,6 +145,9 @@
 
     <input type="submit" class="btn btn-primary" value="Ska användare">
 </form>
+</div>
+    <br>
+
 
 <!-- Footer -->
 <footer>

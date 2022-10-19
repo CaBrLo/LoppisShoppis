@@ -3,10 +3,10 @@ INSERT INTO PRODUCT (NAME, PRICE, DESCRIPTION, CATEGORY, IMAGE) VALUES
 ('Pippi Långstrump',150,'Författare: Astrid Lindgren. Utgiven: 1946. Skick: Välanvänd.', 'Barnböcker', '/images/pippi.jpg'),
 ('The Hitchhikers Guide to the Galaxy', 249, 'Författare: Douglas Adams. Utgiven: 1983. Skick: Bra.', 'Skönlitteratur', '/images/thehitchhikers.jpg'),
 ('The Iliad',34999, 'Författare: Homeros. Utgiven: 1715. Översatt av Alexander Pope. Läderpärm. Skick: Välanvänd.','Skönlitteratur', '/images/theiliad.jpg'),
-('Häxa - dekoration', 99, 'Dekorationshäxa.', 'Halloween', '/images/halloweenhaxa.png'),
-('Pumpa - värmeljuslykta', 149, 'Värmeljuslykta i form av en Halloween-pumpa.', 'Halloween', '/images/pumpalykta.png'),
-('Skelett - dekoration', 299, 'Dekorativt och verklighetstroget skelett vid namn Benjamin, ca 160 cm.', 'Halloween', '/images/skelett.png'),
-('Demospöke - dekoration och husspöke', 9999, 'Sällskapssjukt husspöke som ogillar teknik. Tenderar att dyka upp under demos för att sabotera. (Svår att fota, bild från tidigare ägare).', 'Halloween', '/images/spoke.jpg'),
+('Häxa - dekoration', 99, 'Dekorationshäxa.', 'Inredning', '/images/halloweenhaxa.png'),
+('Pumpa - värmeljuslykta', 149, 'Värmeljuslykta i form av en Halloween-pumpa.', 'Inredning', '/images/pumpalykta.png'),
+('Skelett - dekoration', 299, 'Dekorativt och verklighetstroget skelett vid namn Benjamin, ca 160 cm.', 'Inredning', '/images/skelett.png'),
+('Demospöke - dekoration och husspöke', 9999, 'Sällskapssjukt husspöke som ogillar teknik. Tenderar att dyka upp under demos för att sabotera. (Svår att fota, bild från tidigare ägare).', 'Inredning', '/images/spoke.jpg'),
 ('Tant Grön, Tant Brun och Tant Gredelin',199,'Författare: Elsa Beskow. Utgiven: 1920. Skick: Gott.', 'Barnböcker', '/images/tantgron.jpg'),
 ('1984',99,'Författare: George Orwell. Utgiven: 1980. Skick: Ny.', 'Facklitteratur', '/images/1984.jpg'),
 ('Java direkt',99,'Författare: Jan Skansholm. Utgiven: 1999. Skick: Mycket bra.', 'Facklitteratur', '/images/javadirekt.jpg'),
@@ -23,7 +23,11 @@ INSERT INTO PRODUCT (NAME, PRICE, DESCRIPTION, CATEGORY, IMAGE) VALUES
 ('Byxa och mössa - Mini Rodini', 85, 'Grön byxa och mössa i storlek 56. Skick: Mycket bra.', 'Barn', '/images/minirodini.jpg'),
 ('Hörnskåp i furu', 429, 'Träfärgat hörnskåp i furu. Finns skav och skrap. Skick: Välanvänd.', 'Inredning', '/images/cupboard.jfif'),
 ('Kaffekvarn', 199, 'Beige och grön kaffekvarn. Skick: Välanvänd.', 'Husgeråd', '/images/coffeegrinder.jfif'),
-('Laptop - Samsung', 2100, 'Bärbar dator. Skick: Bra.', 'Hemelektronik', '/images/laptop.webp');
+('Laptop - Samsung', 2100, 'Bärbar dator. Skick: Bra.', 'Hemelektronik', '/images/laptop.webp'),
+('Kopp med fat', 39, 'Blå kopp och fat med gulddekor. Skick: Bra.', 'Inredning', '/images/bluecup.jfif'),
+('Bonad - Bodil Wallman', 129, 'Brun och gul tryckt bonad. Mått: 40x30. Skick: Bra.', 'Inredning', '/images/bonad.jfif'),
+('Matta - Stoddard Gilmore', 349, 'Blommig matta. Mått: 45x90. Skick: Bra.', 'Inredning', '/images/rug.jfif'),
+('Kanna med koppar', 289, 'Risvinsset med fruktmönster i sju delar. Skick: Välanvänd.', 'Inredning', '/images/cupset.jfif');
 
 INSERT INTO SITEUSER (USERNAME, PASSWORD) VALUES
 ('Sushi','3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2');

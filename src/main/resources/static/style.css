@@ -495,6 +495,59 @@ tr.spaceOver>td {
     font-weight: bold;
 }
 
-.font-weight-bold{
+#myInput{
+    text-align: center;
     font-weight: bold;
+    position: relative;
+    style=justify-items: center;
+}
+
+.zoom-in-out2-box:hover{
+  margin: 24px;
+  width: auto;
+  height: 50px;
+  animation: zoom-in-zoom-out2 50s ease infinite;
+
+}
+
+@keyframes zoom-in-zoom-out2 {
+0% {
+  transform: rotate(0);
+  }
+
+   30% {
+      transform: rotate(90deg);
+
+    }
+  70% {
+    transform: rotate(180deg);
+  }
+        }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/****** Styling for login *****/
+
+#login {
+    text-align: center;
+}
+
+
+/****** Styling for new user page *****/
+
+#newuser {
+    display:flex;
+      justify-content: center;
+      text-align: center;
+}
+/****** Styling for user page *****/
+#userpage {
+    /*display: inline-block;
+    text-align: center*/
+    display:flex;
+    justify-content: center;
+
+
 }

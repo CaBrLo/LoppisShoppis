@@ -40,7 +40,7 @@
 <!-- Header with logo -->
 <div class="jumbotron">
   <div class="container text-center">
-    <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
+    <img onclick="location.href='/';" src="/images/loppisshoppis3.png" class="img-responsive">
   </div>
 </div>
 
@@ -107,12 +107,21 @@
 
 <div class="page-header"><h1 style="text-align: center">Tack för ditt köp!!! :)</h1></div>
 
-<p style="text-align: center">Vi har skickat varorna till angiven adress, varorna leveras vardagar och tar vanligtvis mellan 3-5 arbetsdagar. <br>
+<p style="text-align: center">Vi har skickat varorna till angiven adress, varorna levereras vardagar och tar vanligtvis 3-5 dagar. <br>
   som tack för att du tänker på miljön och hållbarhet, får du en rabatt kod som ger dig 15% rabatt på ditt nästa köp.</p>
 
-<p class="font-weight-bold" style="text-align: center">AQ15%STR</p>
-
-
+<div class="tree123" id="imgtree" style="text-align: center;">
+  <img onclick="location.href='/';" src="/images/tree2.png" id="treeimg" height="300" >
+</div>
+<p></p>
+<p></p><br>
+<p></p>
+<div class="buttonDiscount" style="text-align: center">
+<input type="text" value="AQ15%STR" id="myInput">
+<button class="btn btn-primary btn-lg" onclick="copyFunction()">Copy text</button></div>
+<p></p>
+<p></p>
+<p></p>
 <!-- Footer -->
 <footer>
   <div class="footeritems">
@@ -136,4 +145,5 @@
       <a href="/">© LoppisShoppis</a>
     </div>
   </div>
+  <script src="/shoppingcart.js"></script>
 </footer>

@@ -64,7 +64,7 @@
 <!-- Header with logo -->
 <div class="jumbotron">
     <div class="container text-center">
-        <img onclick="location.href='/';" src="/images/loppisshoppis3.png" height="300">
+        <img onclick="location.href='/';" src="/images/loppisshoppis3.png" class="img-responsive">
     </div>
 </div>
 
@@ -130,7 +130,7 @@
 </nav>
 
 <div class="page-header"><h1>Logga in</h1></div>
-
+<div class="container" id="login">
 <form action="/login" th:method="POST">
     <label for="user">Användarnamn</label>
     <input type="text" id="user" name="username" class="usernameinput" onkeyup="updateUsername()">
@@ -141,8 +141,10 @@
     <div class="passwordresult"></div>
 
     <input type="submit" class="btn btn-primary" value="Logga in">
+    <p type="text"><br> Är du inte medlem ännu?</p>
     <a class="btn btn-primary " th:href="'/newuser'" >Skapa ny användare</a>
 </form>
+    </div><br>
 
 <!-- version 2
 <div>
