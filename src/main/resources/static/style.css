@@ -71,15 +71,21 @@ body {
 }
 
 .error {
+    /*
     border-style: solid;
     border-color: red;
-    border-radius: 5px;
+    border-radius: 1px;*/
+    box-shadow: 0px 0px 3px 1px red;
+    border: none;
 }
 
 .success {
+    /*
     border-style: solid;
     border-color: green;
-    border-radius: 5px;
+    border-radius: 1px;*/
+    box-shadow: 0px 0px 3px 1px green;
+    border: none;
 }
 
 .loginstatus {
@@ -290,14 +296,19 @@ display: inline-grid;
     border-radius: 3px;
 }
 
+/*
 :focus-visible {
     /* Border around input fields */
+    /*
     outline: -webkit-focus-ring-color auto 1px;
     outline-color: #3190B5;
     outline-style: auto;
     outline-width: 1px;
-}
+}*/
 
+:focus-visible {
+    outline:none !important
+}
 .container-form label {
     /* Billing info headers */
     margin-bottom: 10px;
