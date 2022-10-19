@@ -475,3 +475,9 @@ tr.spaceOver>td {
 .font-weight-bold{
     font-weight: bold;
 }
+
+/****** Styling for login page *****/
+
+#login {
+    text-align: center;
+}
