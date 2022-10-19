@@ -423,6 +423,8 @@ tr.spaceOver>td {
   100% {
     transform: scale(2, 2);
   }
+
+
 }
 
 /***** Styling for contact us page *****/
@@ -476,8 +478,26 @@ tr.spaceOver>td {
     font-weight: bold;
 }
 
-/****** Styling for login page *****/
+/****** Styling for login *****/
 
 #login {
     text-align: center;
+}
+
+
+/****** Styling for new user page *****/
+
+#newuser {
+    display:flex;
+      justify-content: center;
+      text-align: center;
+}
+/****** Styling for user page *****/
+#userpage {
+    /*display: inline-block;
+    text-align: center*/
+    display:flex;
+    justify-content: center;
+
+
 }
