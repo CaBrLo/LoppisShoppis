@@ -504,3 +504,27 @@ tr.spaceOver>td {
     transform: rotate(360deg);
   }
 }
+
+/****** Styling for login *****/
+
+#login {
+    text-align: center;
+}
+
+
+/****** Styling for new user page *****/
+
+#newuser {
+    display:flex;
+      justify-content: center;
+      text-align: center;
+}
+/****** Styling for user page *****/
+#userpage {
+    /*display: inline-block;
+    text-align: center*/
+    display:flex;
+    justify-content: center;
+
+
+}
