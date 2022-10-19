@@ -136,9 +136,7 @@
     <div class="row">
         <div class="col-md-6">
             <h2>Hej <th th:text="${session.siteuser.username}"></th>!</h2>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Logga ut
-            </button>
+            <a class="btn btn-primary" th:href="'/logoutuser'" >Logga ut</a>
         </div>
     </div>
 </div>

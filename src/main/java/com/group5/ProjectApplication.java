@@ -18,8 +18,6 @@ public class ProjectApplication {
 	{
 		//testCart();
 		testPwHash2("123");
-		testPwHash2("123");
-		testPwHash2("124");
 
 		SpringApplication.run(ProjectApplication.class, args);
 	}
