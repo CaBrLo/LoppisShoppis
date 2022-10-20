@@ -33,9 +33,14 @@ function addProduct(pid, pname, pprice) {
     let newData = { productId: pid, productName: pname, productPrice: pprice }
     let cartData = getStorage()
 
+    let isInCart = new Boolean(false)
+    sessionStorage.setItem("isInCart",false)
     for (let c of cartData) {
         if (newData.productId === c.productId) {
             console.log("Varan är redan i varukorgen")
+            /*isInCart = true
+            sessionStorage.setItem("isInCart",true)*/
+            alert("Varan ligger redan i varukorgen!")
             return;
         }
     }
@@ -59,6 +64,17 @@ function updateBuyModal() {
     if (modalItem != null) {
         numOfProducts = sumProducts()
         numOfPrice = sumPrice()
+
+        // todo if finns i varukorg...
+
+        /*let inCart = new Boolean(sessionStorage.getItem("isInCart"))
+        sessionStorage.removeItem("isInCart")
+        if(inCart)
+        {
+            modalItem.innerHTML = `<ul>
+            <li>Varan finns redan i varukorgen</li>
+            </ul>`
+        }*/
 
         if (modalItem != null) {
             modalItem.innerHTML = `<ul>
@@ -212,5 +228,5 @@ function copyFunction() {
   navigator.clipboard.writeText(copyText.value);
 
   // Alert the copied text
-  alert("Copied the text: " + copyText.value);
+  alert("Nu är din rabattkod kopierad: " + copyText.value);
 }
