@@ -135,17 +135,18 @@
 <!-- New user -->
 <div class="container" id="newuser">
 <form action="/newuser" method="POST" th:object="${user}">
-    <label for="user">Användarnamn</label>
+    <label for="user">Användarnamn: &nbsp </label>
     <input type="text" id="user" name="username" class="usernameinput" onkeyup="updateUsername()">
     <div class="nameresult"></div>
 
-    <label for="password">Lösenord</label>
+    <label for="password">Lösenord: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
     <input type="password" id="password" name="password" class="passwordinput" onkeydown="updatePassword()">
-    <div class="passwordresult"></div><th class="userInput">
-
-    <input type="submit" class="btn btn-primary" value="Ska användare">
-</form>
+    <div class="passwordresult"></div><th class="userInput"><br>
 </div>
+<div id="btn-newuser">
+<input type="submit" class="btn btn-primary" value="Registrera mig!"></div>
+</form>
+
     <br>
 
 

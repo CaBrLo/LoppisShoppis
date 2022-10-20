@@ -531,23 +531,31 @@ tr.spaceOver>td {
 /****** Styling for login *****/
 
 #login {
-    text-align: center;
+    /*display: inline-block
+      text-align: center;*/
+    display:flex;
+          justify-content: center;
 }
 
 
 /****** Styling for new user page *****/
 
 #newuser {
-    display:flex;
+   display:flex;
       justify-content: center;
-      text-align: center;
+
+}
+
+#btn-newuser {
+    text-align: center;
 }
 /****** Styling for user page *****/
 #userpage {
     /*display: inline-block;
-    text-align: center*/
+            text-align: center*/
+            text-align: center;
     display:flex;
-    justify-content: center;
+        justify-content: center;
 
 
 }

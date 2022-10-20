@@ -130,20 +130,23 @@
 </nav>
 
 <div class="page-header"><h1>Logga in</h1></div>
-<div class="container" id="login">
+
+<div id="userpage">
 <form action="/login" th:method="POST">
-    <label for="user">Användarnamn</label>
+    <label for="user">Användarnamn: &nbsp </label>
     <input type="text" id="user" name="username" class="usernameinput" onkeyup="updateUsername()">
     <div class="nameresult"></div>
 
-    <label for="password">Lösenord</label>
+    <label for="password">Lösenord: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
     <input type="password" id="password" name="password" class="passwordinput" onkeydown="updatePassword()">
-    <div class="passwordresult"></div>
+    <div class="passwordresult"></div><br>
 
+    <div id="btn-newuser">
     <input type="submit" class="btn btn-primary" value="Logga in">
     <p type="text"><br> Är du inte medlem ännu?</p>
     <a class="btn btn-primary " th:href="'/newuser'" >Skapa ny användare</a>
 </form>
+    </div>
     </div><br>
 
 <!-- version 2

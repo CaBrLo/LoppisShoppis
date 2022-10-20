@@ -132,10 +132,10 @@
 
 <div class="page-header"><h1>Mitt konto</h1></div>
 
-<div class="container" id="userpage">
+<div id="userpage">
     <div class="row">
         <div class="col-md-6">
-            <h2>Hej <th th:text="${session.siteuser.username}"></th>!</h2><br><br>
+            <h2> Hej <th th:text="${session.siteuser.username}"></th>!</h2><br><br>
             <a class="btn btn-primary" th:href="'/logoutuser'" >Logga ut</a><br>
         </div>
     </div>
